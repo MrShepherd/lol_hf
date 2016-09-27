@@ -1,0 +1,55 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}撸韩服{% endblock %}
+{% block metas %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">{{super()}}
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='cover.css') }}">
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static',filename='jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js') }}"></script>
+{% endblock %}
+{% block navbar %}
+    <div class="navbar-wrapper">
+        <div class="container">
+           <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="{{ url_for('main.index') }}" class="navbar-brand">
+                            <img src="" alt="LOL">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li class="active"><a href="{{ url_for('main.index') }}">首页</a></li>
+                            <li><a href="{{ url_for('main.ladder') }}">天梯</a></li>    
+                            <li><a href="{{ url_for('main.query') }}">查询</a></li>
+                            <li><a href="{{ url_for('main.sponsor') }}">赞助</a></li>    
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><p class="navbar-text">送给喜欢LOL并且关注韩服的召唤师</p></li>
+                            <li><button type="button" class="btn btn-primary btn-xs navbar-btn">Alpha版本</button></li>
+                            <li>&nbsp;</li>
+                            <li><button type="button" class="btn btn-primary btn-xs navbar-btn">免登陆</button></li>
+                            <li>&nbsp;</li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>    
+        </div>
+    </div>     
+{% endblock %}
+{% block content %}
+    <div class="site-wrapper">
+    {% block pagecontent %}{% endblock %}
+    </div>
+{% endblock %}
