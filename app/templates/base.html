@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">{{super()}}
 {% endblock %}
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='cover.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/lolhf.css') }}">
 {% endblock %}
 {% block scripts %}
-    <script type="text/javascript" src="{{ url_for('static',filename='jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/lolhf.js') }}"></script>
 {% endblock %}
 {% block navbar %}
     <div class="navbar-wrapper">

@@ -1,8 +1,5 @@
 {% extends "base.html" %}
 {% block title%}首页-撸韩服{% endblock %}
-{% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static',filename='carousel.css') }}">{{ super() }}
-{% endblock %}
 {% block pagecontent %}
         <!-- carousel -->
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
