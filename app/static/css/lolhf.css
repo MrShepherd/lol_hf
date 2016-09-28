@@ -1,0 +1,21 @@
+body{
+    padding-top: 70px;
+}
+
+.navbar-btn{
+    margin-left: 15px;
+}
+
+.carousel{
+    height: 400px;
+    background-color: #000;
+}
+
+.carousel .item{
+    height: 400px;
+    background-color: #000;
+}
+
+.carousel img{
+    width: 100%;
+}
