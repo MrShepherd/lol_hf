@@ -1,5 +1,6 @@
 from . import api
 from flask import jsonify
+from .. import queries
 
 
 @api.route('/api/top15/')
@@ -16,4 +17,10 @@ def get_top15():
             'lp': 1250
         }
     ]
+    return jsonify({'data': data})
+
+
+@api.route('/api/shangdandata/')
+def get_shangdan_data():
+    data = queries.get_place_data('shangdan')
     return jsonify({'data': data})

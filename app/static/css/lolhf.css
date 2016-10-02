@@ -9,6 +9,7 @@ body{
 .carousel{
     height: 400px;
     background-color: #000;
+    margin-bottom: 50px;
 }
 
 .carousel .item{
@@ -18,4 +19,12 @@ body{
 
 .carousel img{
     width: 100%;
+}
+
+hr.divider{
+    margin:40px 0;
+}
+
+#nav-tab-css{
+    margin-bottom: 40px;
 }

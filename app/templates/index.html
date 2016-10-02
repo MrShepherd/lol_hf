@@ -59,17 +59,215 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                
+            <div class="col-md-4"  align="center">
+                <h3>天梯-TOP15</h3>
+                <div class="table-responsive">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>比赛ID</th>
+                                <th>游戏ID</th>
+                                <th>王者分数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for td in top15data %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td>{{ td.name }}</td>
+                                <td>{{ td.id }}</td>
+                                <td>{{ td.lp }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="col-md-4">
-
+            <div class="col-md-4" align="center">
+             <h3>LPL选手-TOP15</h3>
+                <div class="table-responsive">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>比赛ID</th>
+                                <th>游戏ID</th>
+                                <th>王者分数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for td in top15data %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td>{{ td.name }}</td>
+                                <td>{{ td.id }}</td>
+                                <td>{{ td.lp }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="#" role="button">查看更多</a>
+                </div>
             </div>
-            <div class="col-md-4">
-            
+            <div class="col-md-4" align="center">
+             <h3>路人-TOP15</h3>
+                <div class="table-responsive">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>比赛ID</th>
+                                <th>游戏ID</th>
+                                <th>王者分数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for td in top15data %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td>{{ td.name }}</td>
+                                <td>{{ td.id }}</td>
+                                <td>{{ td.lp }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>    
+        <hr class="divider">
+    </div>
+
+    <div class="container">
+        <h3 align="center">位置最强</h3>
+        <ul class="nav nav-tabs" role="tablist" id="nav-tab-css">
+            <li class="active"><a href="#shangdan" role="tab" data-toggle="tab">上单</a></li>
+            <li><a href="#zhongdan" role="tab" data-toggle="tab">中单</a></li>
+            <li><a href="#daye" role="tab" data-toggle="tab">打野</a></li>
+            <li><a href="#adc" role="tab" data-toggle="tab">ADC</a></li>
+            <li><a href="#fuzhu" role="tab" data-toggle="tab">辅助</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="shangdan">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>比赛ID</th>
+                                <th>战队</th>
+                                <th>游戏ID</th>
+                                <th>段位</th>
+                                <th>分数</th>
+                                <th>胜率</th>
+                                <th>隐藏分</th>
+                                <th>近20场胜率</th>
+                                <th>近20场KDA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for td in placedata %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td>{{ td.name }}</td>
+                                <td>{{ td.team }}</td>
+                                <td>{{ td.id }}</td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.winratio }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentykda }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="#" role="button">查看更多</a>
+                </div>
+            </div>
+            <div class="tab-pane" id="zhongdan">
+                fff
+            </div>
+            <div class="tab-pane" id="daye">
+                ddd
+            </div>
+            <div class="tab-pane" id="adc">
+                eee
+            </div>
+            <div class="tab-pane" id="fuzhu">
+                ggg
+            </div>
+        </div>
+        <hr class="divider">
+    </div>
+     <div class="container">
+        <h3 align="center">热门战队</h3>
+        <ul class="nav nav-tabs" role="tablist" id="nav-tab-css">
+            <li class="active"><a href="#EDG" role="tab" data-toggle="tab">EDG</a></li>
+            <li><a href="#RNG" role="tab" data-toggle="tab">RNG</a></li>
+            <li><a href="#LGD" role="tab" data-toggle="tab">LGD</a></li>
+            <li><a href="#Snake" role="tab" data-toggle="tab">Snake</a></li>
+            <li><a href="#IG" role="tab" data-toggle="tab">IG</a></li>
+            <li><a href="#WE" role="tab" data-toggle="tab">WE</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="EDG">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>比赛ID</th>
+                                <th>位置</th>
+                                <th>游戏ID</th>
+                                <th>段位</th>
+                                <th>分数</th>
+                                <th>胜率</th>
+                                <th>隐藏分</th>
+                                <th>近20场胜率</th>
+                                <th>近20场KDA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for td in teamdata %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td>{{ td.name }}</td>
+                                <td>{{ td.place }}</td>
+                                <td>{{ td.id }}</td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.winratio }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentykda }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="#" role="button">查看更多</a>
+                </div>
+            </div>
+            <div class="tab-pane" id="RNG">
+                fff
+            </div>
+            <div class="tab-pane" id="LGD">
+                ddd
+            </div>
+            <div class="tab-pane" id="Snake">
+                eee
+            </div>
+            <div class="tab-pane" id="IG">
+                ggg
+            </div>
+            <div class="tab-pane" id="WE">
+                hhh
+            </div>
+        </div>
+        <hr class="divider">
+    </div>
 {% endblock %}
