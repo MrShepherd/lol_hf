@@ -28,3 +28,8 @@ hr.divider{
 #nav-tab-css{
     margin-bottom: 40px;
 }
+
+.btn-grp{
+    margin: 35px;
+    text-align:center;
+}

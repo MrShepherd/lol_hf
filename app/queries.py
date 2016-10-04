@@ -1,286 +1,61 @@
 
 def get_top15():
-    data = [
-        {
-            'rank': 1,
-            'name': 'xiaohu',
-            'id': 'leap',
-            'lp': 1300
-        },
-        {
-            'rank': 2,
-            'name': 'faker',
-            'id': 'hideonbush',
-            'lp': 1250
-        },
-        {
-            'rank': 2,
-            'name': 'faker',
-            'id': 'hideonbush',
-            'lp': 1250
-        },
-        {
-            'rank': 2,
-            'name': 'faker',
-            'id': 'hideonbush',
-            'lp': 1250
-        },
-        {
-            'rank': 2,
-            'name': 'faker',
-            'id': 'hideonbush',
-            'lp': 1250
-        },
-        {
-            'rank': 2,
-            'name': 'faker',
-            'id': 'hideonbush',
-            'lp': 1250
-        },
-        {
-            'rank': 2,
-            'name': 'faker',
-            'id': 'hideonbush',
-            'lp': 1250
-        },
-        {
-            'rank': 2,
-            'name': 'faker',
-            'id': 'hideonbush',
-            'lp': 1250
-        },
-        {
-            'rank': 2,
-            'name': 'faker',
-            'id': 'hideonbush',
-            'lp': 1250
-        },
-        {
-            'rank': 2,
-            'name': 'faker',
-            'id': 'hideonbush',
-            'lp': 1250
-        }
-
-    ]
+    item = {
+        'rank': 1,
+        'name': 'xiaohu',
+        'id': 'leap',
+        'lp': 1300
+    }
+    data = [item for x in range(1, 11)]
     return data
 
 
 def get_place_data():
-    data = [
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        }
-    ]
+    item = {
+        'place': 'shangdan',
+        'rank': 1,
+        'name': 'uzi',
+        'team': 'RNG',
+        'id': 'kuangxiaogou',
+        'tier': 'wangzhe',
+        'lp': 1000,
+        'winratio': 0.60,
+        'mmr': 2300,
+        'twentywinratio': 0.80,
+        'twentykda': 13
+    }
+    data = [item for x in range(1, 10)]
     return data
 
 
 def get_team_data():
-    data = [
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        },
-        {
-            'place': 'shangdan',
-            'rank': 1,
-            'name': 'uzi',
-            'team': 'RNG',
-            'id': 'kuangxiaogou',
-            'tier': 'wangzhe',
-            'lp': 1000,
-            'winratio': 0.60,
-            'mmr': 2300,
-            'twentywinratio': 0.80,
-            'twentykda': 13
-        }
-    ]
+    item = {
+        'place': 'shangdan',
+        'rank': 1,
+        'name': 'uzi',
+        'team': 'RNG',
+        'id': 'kuangxiaogou',
+        'tier': 'wangzhe',
+        'lp': 1000,
+        'winratio': 0.60,
+        'mmr': 2300,
+        'twentywinratio': 0.80,
+        'twentykda': 13
+    }
+    data = [item for x in range(1, 10)]
+    return data
+
+
+def get_ladder_data():
+    item = {
+        'rank': 1,
+        'name': 'uzi',
+        'team': 'RNG',
+        'id': 'kuangxiaogou',
+        'tier': 'wangzhe',
+        'lp': 1000,
+        'mmr': 2300,
+        'winratio': 0.60,
+    }
+    data = [item for x in range(1, 30)]
     return data

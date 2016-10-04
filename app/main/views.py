@@ -14,12 +14,14 @@ def index():
 
 @main.route('/ladder', methods=['GET'])
 def ladder():
-    return render_template('ladder.html')
+    ladder_data = queries.get_ladder_data()
+    return render_template('ladder.html', ladder_data=ladder_data)
 
 
 @main.route('/query', methods=['GET'])
 def query():
-    return render_template('query.html')
+    ladder_data = queries.get_ladder_data()
+    return render_template('query.html', ladder_data=ladder_data)
 
 
 @main.route('/sponsor', methods=['GET'])

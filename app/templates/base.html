@@ -44,17 +44,18 @@
     </nav>    
 {% endblock %}
 {% block content %}
-<div class="container">
-    {% for message in get_flashed_messages() %}
-        <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ message }}
-        </div>
-    {% endfor %}
-    {% block pagecontent %}{% endblock %}
-    <footer>
-        <p class="pull-right"><a href="#top">回到顶部</a></p>
-        <p>Copyright © shepherd 2016,powered by flask and bootstrap</p>
-    </footer>
-</div>    
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% block pagecontent %}{% endblock %}
+         <hr class="divider">
+        <footer>
+            <p class="pull-right"><a href="#top">回到顶部</a></p>
+            <p>Copyright © shepherd 2016,powered by flask and bootstrap</p>
+        </footer>
+    </div>    
 {% endblock %}

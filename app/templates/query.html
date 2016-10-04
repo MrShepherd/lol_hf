@@ -1,7 +1,87 @@
 {% extends "base.html" %}
 {% block title%}查询-撸韩服{% endblock %}
 {% block pagecontent %}
-            <div class="container">
-                <h1>撸韩服-查询</h1>
-            </div>
+        <div style="">
+            <dl style="font-size: 20px">
+                <dt style="float: left;margin-right: 25px;">选手服务器</dt>
+                <dd>
+                    <a href="#" >全选</a>
+                    <a href="#">LPL</a>
+                    <a href="#">韩服</a>
+                    <a href="#">台服</a>
+                    <a href="#">美服</a>
+                    <a href="#">欧服</a>
+                </dd>
+                <dl style="font-size: 20px">
+                <dt style="float: left;margin-right: 25px;">选手服务器</dt>
+                <dd>
+                    <a href="#" >全选</a>
+                    <a href="#">LPL</a>
+                    <a href="#">韩服</a>
+                    <a href="#">台服</a>
+                    <a href="#">美服</a>
+                    <a href="#">欧服</a>
+                </dd>
+                <dl style="font-size: 20px">
+                <dt style="float: left;margin-right: 25px;">选手服务器</dt>
+                <dd>
+                    <a href="#" >全选</a>
+                    <a href="#">LPL</a>
+                    <a href="#">韩服</a>
+                    <a href="#">台服</a>
+                    <a href="#">美服</a>
+                    <a href="#">欧服</a>
+                </dd>
+                <dl style="font-size: 20px">
+                <dt style="float: left;margin-right: 25px;">选手服务器</dt>
+                <dd>
+                    <a href="#" >全选</a>
+                    <a href="#">LPL</a>
+                    <a href="#">韩服</a>
+                    <a href="#">台服</a>
+                    <a href="#">美服</a>
+                    <a href="#">欧服</a>
+                </dd>
+                <dl style="font-size: 20px">
+                <dt style="float: left;margin-right: 25px;">选手服务器</dt>
+                <dd>
+                    <a href="#" >全选</a>
+                    <a href="#">LPL</a>
+                    <a href="#">韩服</a>
+                    <a href="#">台服</a>
+                    <a href="#">美服</a>
+                    <a href="#">欧服</a>
+                </dd>
+            </dl>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-stripped table-hover">
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>比赛ID</th>
+                        <th>队伍</th>
+                        <th>游戏ID</th>
+                        <th>段位</th>
+                        <th>分数</th>
+                        <th>隐藏分</th>
+                        <th>胜率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for td in ladder_data %}
+                    <tr>
+                        <td>{{ td.rank }}</td>
+                        <td>{{ td.name }}</td>
+                        <td>{{ td.team }}</td>
+                        <td>{{ td.id }}</td>
+                        <td>{{ td.tier }}</td>
+                        <td>{{ td.lp }}</td>
+                        <td>{{ td.mmr }}</td>
+                        <td>{{ td.winratio }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 {% endblock %}
