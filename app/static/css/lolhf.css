@@ -33,3 +33,52 @@ hr.divider{
     margin: 35px;
     text-align:center;
 }
+/*left_filter*/
+.left_filter{
+    float: left;
+}
+.panel{width: 180px;}
+.panel-heading{
+    padding:5px 10px;
+}
+.panel-body{padding: 5px 5px;}
+.panel-body ul{
+    list-style-type:none; padding: 0px; margin: 0px;
+}
+.panel-body li{
+    float: left; padding: 0px 5px; width: 33%;
+}
+.panel-body a{
+    color: black;text-decoration-line: none;padding: 2px 3px;
+}
+.panel-body a:hover{
+    color: blue;
+}
+.panel-body a.active{
+    background-color: blue;color: white;
+}
+
+/*player_list*/
+.player_list{
+    clear: right;margin-left: 200px;
+}
+.player_list ul{
+    list-style-type: none;padding: 0px;margin: 0px;
+}
+.player_list li{
+    float: left;padding: 10px 10px;
+}
+.player_list a.thumbnail{
+    margin-bottom: 10px;
+}
+.player_list .thumbnail{
+    margin-bottom: 15px;
+}
+.player_list .caption{
+    padding: 0px;text-align: center;font-size: 18px;
+}
+
+/*table*/
+.table_style{
+    clear: left;padding-top: 20px;
+}
