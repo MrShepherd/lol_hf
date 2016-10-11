@@ -2,37 +2,37 @@ body{
     padding-top: 70px;
 }
 
-.navbar-btn{
-    margin-left: 10px;
-}
-
+/*carousel*/
 .carousel{
     height: 400px;
     background-color: #000;
     margin-bottom: 50px;
 }
-
 .carousel .item{
     height: 400px;
     background-color: #000;
 }
-
 .carousel img{
     width: 100%;
 }
 
+/*hr*/
 hr.divider{
     margin:40px 0;
 }
 
+/*nav*/
 #nav-tab-css{
     margin-bottom: 40px;
 }
-
 .btn-grp{
     margin: 35px;
     text-align:center;
 }
+.navbar-btn{
+    margin-left: 10px;
+}
+
 /*left_filter*/
 .left_filter{
     float: left;
