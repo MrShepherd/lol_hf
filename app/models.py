@@ -65,3 +65,31 @@ class GameIDInfo(db.Model):
 
     def __repr__(self):
         return '<GameIDInfo %r>' % self.game_id
+
+    class Summary(db.Model):
+        __tablename__ = 'summary'
+        player_name = db.Column(db.String(100))
+        player_country = db.Column(db.String(20))
+        player_team_short_name = db.Column(db.String(50))
+        player_team_league = db.Column(db.String(20))
+        player_place = db.Column(db.String(20))
+        game_id = db.Column(db.String(100), primary_key=True)
+        link = db.Column(db.String(500))
+        rank = db.Column(db.Integer)
+        tier = db.Column(db.String(30))
+        lp = db.Column(db.Integer)
+        total_win = db.Column(db.Integer)
+        total_lose = db.Column(db.Integer)
+        total_win_ratio = db.Column(db.Integer)
+        mmr = db.Column(db.Integer)
+        twentywin = db.Column(db.Integer)
+        twentylose = db.Column(db.Integer)
+        twentywinratio = db.Column(db.Integer)
+        twentyavgkill = db.Column(db.Float)
+        twentyavgdeath = db.Column(db.Float)
+        twentyavgassist = db.Column(db.Float)
+        twentyavgkda = db.Column(db.Float)
+        twentyavgck = db.Column(db.Float)
+
+        def __repr__(self):
+            return '<Summary %r>' % self.game_id
