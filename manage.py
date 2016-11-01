@@ -1,6 +1,6 @@
 import os
 from app import create_app, db
-from app.models import Team, Player, IDMapping, GameIDInfo
+from app.models import Team, Player, IDMapping, GameIDInfo, Summary
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 
@@ -10,8 +10,7 @@ migrate = Migrate(app, db)
 
 
 def make_shell_context():
-    return dict(app=app, db=db, Team=Team, Player=Player,
-                IDMapping=IDMapping, GameIDInfo=GameIDInfo)
+    return dict(app=app, db=db, Team=Team, Player=Player, IDMapping=IDMapping, GameIDInfo=GameIDInfo, Summary=Summary)
 
 
 manager.add_command('shell', Shell(make_context=make_shell_context))
