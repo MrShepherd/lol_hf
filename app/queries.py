@@ -29,31 +29,36 @@ def get_ladder_top15_cn():
 
 
 def get_ladder_top15_adc():
-    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.lp).filter(Summary.player_place == 'ADC').order_by(Summary.rank).all()[:15]
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr, Summary.total_win,
+                              Summary.total_win_ratio).filter(Summary.player_place == 'ADC').order_by(Summary.rank).all()[:15]
     data = to_dict(result)
     return data
 
 
 def get_ladder_top15_support():
-    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.lp).filter(Summary.player_place == '辅助').order_by(Summary.rank).all()[:15]
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr, Summary.total_win,
+                              Summary.total_win_ratio).filter(Summary.player_place == '辅助').order_by(Summary.rank).all()[:15]
     data = to_dict(result)
     return data
 
 
 def get_ladder_top15_top():
-    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.lp).filter(Summary.player_place == '上单').order_by(Summary.rank).all()[:15]
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr, Summary.total_win,
+                              Summary.total_win_ratio).filter(Summary.player_place == '上单').order_by(Summary.rank).all()[:15]
     data = to_dict(result)
     return data
 
 
 def get_ladder_top15_middle():
-    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.lp).filter(Summary.player_place == '中单').order_by(Summary.rank).all()[:15]
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr, Summary.total_win,
+                              Summary.total_win_ratio).filter(Summary.player_place == '中单').order_by(Summary.rank).all()[:15]
     data = to_dict(result)
     return data
 
 
 def get_ladder_top15_jungle():
-    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.lp).filter(Summary.player_place == '打野').order_by(Summary.rank).all()[:15]
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr, Summary.total_win,
+                              Summary.total_win_ratio).filter(Summary.player_place == '打野').order_by(Summary.rank).all()[:15]
     data = to_dict(result)
     return data
 
@@ -62,7 +67,8 @@ def get_hot_team():
     hot_team_list = ['EDG', 'RNG', 'IM', 'WE', 'SS', 'LGD', 'OMG', 'IG', 'SKT', 'ROX', 'SSG']
     item = []
     for team in hot_team_list:
-        result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.lp).filter(Summary.player_team_short_name == team).order_by(Summary.rank).all()[:15]
+        result = db.session.query(Summary.player_name, Summary.rank, Summary.player_place, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr, Summary.total_win, Summary.total_win_ratio).filter(
+            Summary.player_team_short_name == team).order_by(Summary.rank).all()[:15]
         item.append({'%s-data' % team: to_dict(result)['data']})
     data = {'data': item}
     return data
