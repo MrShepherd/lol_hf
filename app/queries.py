@@ -1,3 +1,5 @@
+from sqlalchemy.sql.elements import or_
+
 from app.models import Summary
 from . import db
 
@@ -71,6 +73,41 @@ def get_hot_team():
             Summary.player_team_short_name == team).order_by(Summary.rank).all()[:15]
         item.append({'%s-data' % team: to_dict(result)['data']})
     data = {'data': item}
+    return data
+
+
+def get_full_ladder():
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
+                              Summary.total_win, Summary.total_lose, Summary.total_win_ratio).order_by(Summary.rank).all()
+    data = to_dict(result)
+    return data
+
+
+def get_pro_ladder():
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
+                              Summary.total_win, Summary.total_lose, Summary.total_win_ratio).filter(Summary.player_team_short_name != '路人').order_by(Summary.rank).all()
+    data = to_dict(result)
+    return data
+
+
+def get_lpl_ladder():
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
+                              Summary.total_win, Summary.total_lose, Summary.total_win_ratio).filter(Summary.player_team_league == 'LPL').order_by(Summary.rank).all()
+    data = to_dict(result)
+    return data
+
+
+def get_cn_ladder():
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
+                              Summary.total_win, Summary.total_lose, Summary.total_win_ratio).filter(or_(Summary.player_country == 'CN'), Summary.player_country == 'TW').order_by(Summary.rank).all()
+    data = to_dict(result)
+    return data
+
+
+def get_nonpro_ladder():
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
+                              Summary.total_win, Summary.total_lose, Summary.total_win_ratio).filter(Summary.player_place == '路人').order_by(Summary.rank).all()
+    data = to_dict(result)
     return data
 
 

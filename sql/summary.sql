@@ -1,5 +1,5 @@
 INSERT INTO summary
-  SELECT
+  SELECT DISTINCT
     COALESCE(c.player_name, '路人')            AS 'player_name',
     COALESCE(c.player_country, 'unknown')    AS 'player_country',
     COALESCE(c.player_team_short_name, '路人') AS 'player_team_short_name',

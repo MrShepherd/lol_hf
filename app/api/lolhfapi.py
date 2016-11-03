@@ -51,9 +51,39 @@ def get_top15_jungle():
     return jsonify(data)
 
 
-@api.route('/api/teamdata/')
+@api.route('/api/hotteam/')
 def get_team_data():
     data = queries.get_hot_team()
+    return jsonify(data)
+
+
+@api.route('/api/ladder/')
+def get_ladder_ranking():
+    data = queries.get_full_ladder()
+    return jsonify(data)
+
+
+@api.route('/api/proladder/')
+def get_pro_ladder_ranking():
+    data = queries.get_pro_ladder()
+    return jsonify(data)
+
+
+@api.route('/api/lplladder/')
+def get_lpl_ladder_ranking():
+    data = queries.get_lpl_ladder()
+    return jsonify(data)
+
+
+@api.route('/api/cnladder/')
+def get_cn_ladder_ranking():
+    data = queries.get_cn_ladder()
+    return jsonify(data)
+
+
+@api.route('/api/nonproladder/')
+def get_nonpro_ladder_ranking():
+    data = queries.get_nonpro_ladder()
     return jsonify(data)
 
 
