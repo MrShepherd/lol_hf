@@ -1,84 +1,129 @@
-body{
+body {
     padding-top: 70px;
 }
 
 /*carousel*/
-.carousel{
+.carousel {
     height: 400px;
     background-color: #000;
     margin-bottom: 50px;
 }
-.carousel .item{
+
+.carousel .item {
     height: 400px;
     background-color: #000;
 }
-.carousel img{
+
+.carousel img {
     width: 100%;
 }
 
 /*hr*/
-hr.divider{
-    margin:40px 0;
+hr.divider {
+    margin: 40px 0;
 }
 
 /*nav*/
-#nav-tab-css{
+#nav-tab-css {
     margin-bottom: 40px;
 }
-.btn-grp{
+
+.btn-grp {
     margin: 35px;
-    text-align:center;
+    text-align: center;
 }
-.navbar-btn{
+
+.navbar-btn {
     margin-left: 10px;
 }
 
+/*index-top10*/
+.top10 table a {
+    color: #000;
+}
+
+/*index-placedata*/
+.tab-content td a{
+    color: #000;
+}
+
 /*left_filter*/
-.left_filter{
+.left_filter {
     float: left;
 }
-.panel{width: 180px;}
-.panel-heading{
-    padding:5px 10px;
+
+.panel {
+    width: 180px;
 }
-.panel-body{padding: 5px 5px;}
-.panel-body ul{
-    list-style-type:none; padding: 0px; margin: 0px;
+
+.panel-heading {
+    padding: 5px 10px;
 }
-.panel-body li{
-    float: left; padding: 0px 5px; width: 33%;
+
+.panel-body {
+    padding: 5px 5px;
 }
-.panel-body a{
-    color: black;text-decoration-line: none;padding: 2px 3px;
+
+.panel-body ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
 }
-.panel-body a:hover{
+
+.panel-body li {
+    float: left;
+    padding: 0px 5px;
+    width: 33%;
+}
+
+.panel-body a {
+    color: black;
+    text-decoration-line: none;
+    padding: 2px 3px;
+}
+
+.panel-body a:hover {
     color: blue;
 }
-.panel-body a.active{
-    background-color: blue;color: white;
+
+.panel-body a.active {
+    background-color: blue;
+    color: white;
 }
 
 /*player_list*/
-.player_list{
-    clear: right;margin-left: 200px;
+.player_list {
+    clear: right;
+    margin-left: 200px;
 }
-.player_list ul{
-    list-style-type: none;padding: 0px;margin: 0px;
+
+.player_list ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
 }
-.player_list li{
-    float: left;padding: 10px 10px;
+
+.player_list li {
+    float: left;
+    padding: 10px 10px;
 }
-.player_list a.thumbnail{
+
+.player_list a.thumbnail {
     margin-bottom: 10px;
 }
-.player_list .thumbnail{
+
+.player_list .thumbnail {
     margin-bottom: 15px;
 }
-.player_list .caption{
-    padding: 0px;text-align: center;font-size: 18px;
+
+.player_list .caption {
+    padding: 0px;
+    text-align: center;
+    font-size: 18px;
 }
 
 /*table*/
-.table_style{
-    clear: left;padding-top: 20px;
+.table_style {
+    clear: left;
+    padding-top: 20px;
 }

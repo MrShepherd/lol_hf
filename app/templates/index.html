@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-{% block title%}首页-撸韩服{% endblock %}
+{% block title %}首页-撸韩服{% endblock %}
 {% block styles %}
-    {{super()}}
+    {{ super() }}
     <style type="text/css">
-        body{
-            padding-top:50px;
-        } 
+        body {
+            padding-top: 50px;
+        }
     </style>
 {% endblock %}
 {% block pagecontent %}
-   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -21,7 +21,8 @@
                 <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
                 <div class="carousel-caption">
                     <h1>Example headline.</h1>
-                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web
+                        browser security rules.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                 </div>
             </div>
@@ -29,7 +30,8 @@
                 <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
                 <div class="carousel-caption">
                     <h1>Example headline.</h1>
-                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web
+                        browser security rules.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                 </div>
             </div>
@@ -37,7 +39,8 @@
                 <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
                 <div class="carousel-caption">
                     <h1>Example headline.</h1>
-                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web
+                        browser security rules.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                 </div>
             </div>
@@ -45,7 +48,8 @@
                 <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Fourth slide">
                 <div class="carousel-caption">
                     <h1>Example headline.</h1>
-                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web
+                        browser security rules.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                 </div>
             </div>
@@ -60,80 +64,80 @@
         </a>
     </div>
 
-    <div class="container">
+    <div class="container top10">
         <div class="row">
-            <div class="col-md-4"  align="center">
-                <h3>天梯-TOP15</h3>
+            <div class="col-md-4" align="center">
+                <h3>天梯-TOP10</h3>
                 <div class="table-responsive">
                     <table class="table table-stripped table-hover table-condensed">
                         <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>比赛ID</th>
-                                <th>游戏ID</th>
-                                <th>王者分数</th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>选手</th>
+                            <th>游戏ID</th>
+                            <th>分数</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            {% for td in top15data %}
+                        {% for td in top10data %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td>{{ td.name }}</td>
-                                <td>{{ td.id }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
                                 <td>{{ td.lp }}</td>
                             </tr>
-                            {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="col-md-4" align="center">
-             <h3>LPL选手-TOP15</h3>
+                <h3>LPL选手-TOP10</h3>
                 <div class="table-responsive">
                     <table class="table table-stripped table-hover table-condensed">
                         <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>比赛ID</th>
-                                <th>游戏ID</th>
-                                <th>王者分数</th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>游戏ID</th>
+                            <th>分数</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            {% for td in top15data %}
+                        {% for td in top10data %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td>{{ td.name }}</td>
-                                <td>{{ td.id }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
                                 <td>{{ td.lp }}</td>
                             </tr>
-                            {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
-                    <a class="btn btn-primary" href="#" role="button">查看更多</a>
+                    <a class="btn btn-primary" href="{{ url_for('.ladder') }}" role="button">查看更多</a>
                 </div>
             </div>
             <div class="col-md-4" align="center">
-             <h3>路人-TOP15</h3>
+                <h3>国人-TOP10</h3>
                 <div class="table-responsive">
                     <table class="table table-stripped table-hover table-condensed">
                         <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>比赛ID</th>
-                                <th>游戏ID</th>
-                                <th>王者分数</th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>游戏ID</th>
+                            <th>分数</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            {% for td in top15data %}
+                        {% for td in top10data %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td>{{ td.name }}</td>
-                                <td>{{ td.id }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
                                 <td>{{ td.lp }}</td>
                             </tr>
-                            {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -145,127 +149,687 @@
     <div class="container">
         <h3 align="center">位置最强</h3>
         <ul class="nav nav-tabs" role="tablist" id="nav-tab-css">
-            <li class="active"><a href="#shangdan" role="tab" data-toggle="tab">上单</a></li>
+            <li class="active"><a href="#adc" role="tab" data-toggle="tab">ADC</a></li>
+            <li><a href="#fuzhu" role="tab" data-toggle="tab">辅助</a></li>
             <li><a href="#zhongdan" role="tab" data-toggle="tab">中单</a></li>
             <li><a href="#daye" role="tab" data-toggle="tab">打野</a></li>
-            <li><a href="#adc" role="tab" data-toggle="tab">ADC</a></li>
-            <li><a href="#fuzhu" role="tab" data-toggle="tab">辅助</a></li>
+            <li><a href="#shangdan" role="tab" data-toggle="tab">上单</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active" id="shangdan">
+            <div class="tab-pane active" id="adc">
                 <div class="table-responsive" align="center">
                     <table class="table table-stripped table-hover table-condensed">
                         <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>比赛ID</th>
-                                <th>战队</th>
-                                <th>游戏ID</th>
-                                <th>段位</th>
-                                <th>分数</th>
-                                <th>胜率</th>
-                                <th>隐藏分</th>
-                                <th>近20场胜率</th>
-                                <th>近20场KDA</th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>战队</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            {% for td in placedata %}
+                        {% for td in placedata[0]['ADC-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td>{{ td.name }}</td>
-                                <td>{{ td.team }}</td>
-                                <td>{{ td.id }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_team_short_name }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
                                 <td>{{ td.tier }}</td>
                                 <td>{{ td.lp }}</td>
-                                <td>{{ td.winratio }}</td>
                                 <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
                                 <td>{{ td.twentywinratio }}</td>
-                                <td>{{ td.twentykda }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
                             </tr>
-                            {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
-                    <a class="btn btn-primary" href="#" role="button">查看更多</a>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
+            </div>
+            <div class="tab-pane" id="fuzhu">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>战队</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in placedata[1]['\u8f85\u52a9-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_team_short_name }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
                 </div>
             </div>
             <div class="tab-pane" id="zhongdan">
-                fff
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>战队</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in placedata[2]['\u4e2d\u5355-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_team_short_name }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
             </div>
             <div class="tab-pane" id="daye">
-                ddd
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>战队</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in placedata[3]['\u6253\u91ce-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_team_short_name }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
             </div>
-            <div class="tab-pane" id="adc">
-                eee
-            </div>
-            <div class="tab-pane" id="fuzhu">
-                ggg
+            <div class="tab-pane" id="shangdan">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>战队</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in placedata[4]['\u4e0a\u5355-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_team_short_name }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
             </div>
         </div>
         <hr class="divider">
     </div>
-     <div class="container">
+    <div class="container">
         <h3 align="center">热门战队</h3>
         <ul class="nav nav-tabs" role="tablist" id="nav-tab-css">
             <li class="active"><a href="#EDG" role="tab" data-toggle="tab">EDG</a></li>
             <li><a href="#RNG" role="tab" data-toggle="tab">RNG</a></li>
+            <li><a href="#IM" role="tab" data-toggle="tab">IM</a></li>
+            <li><a href="#SKT" role="tab" data-toggle="tab">SKT</a></li>
+            <li><a href="#ROX" role="tab" data-toggle="tab">ROX</a></li>
+            <li><a href="#SSG" role="tab" data-toggle="tab">SSG</a></li>
             <li><a href="#LGD" role="tab" data-toggle="tab">LGD</a></li>
-            <li><a href="#Snake" role="tab" data-toggle="tab">Snake</a></li>
+            <li><a href="#SS" role="tab" data-toggle="tab">SS</a></li>
             <li><a href="#IG" role="tab" data-toggle="tab">IG</a></li>
             <li><a href="#WE" role="tab" data-toggle="tab">WE</a></li>
+            <li><a href="#OMG" role="tab" data-toggle="tab">OMG</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="EDG">
                 <div class="table-responsive" align="center">
                     <table class="table table-stripped table-hover table-condensed">
                         <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>比赛ID</th>
-                                <th>位置</th>
-                                <th>游戏ID</th>
-                                <th>段位</th>
-                                <th>分数</th>
-                                <th>胜率</th>
-                                <th>隐藏分</th>
-                                <th>近20场胜率</th>
-                                <th>近20场KDA</th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            {% for td in teamdata %}
+                        {% for td in teamdata[0]['EDG-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td>{{ td.name }}</td>
-                                <td>{{ td.place }}</td>
-                                <td>{{ td.id }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
                                 <td>{{ td.tier }}</td>
                                 <td>{{ td.lp }}</td>
-                                <td>{{ td.winratio }}</td>
                                 <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
                                 <td>{{ td.twentywinratio }}</td>
-                                <td>{{ td.twentykda }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
                             </tr>
-                            {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
-                    <a class="btn btn-primary" href="#" role="button">查看更多</a>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
                 </div>
             </div>
             <div class="tab-pane" id="RNG">
-                fff
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[1]['RNG-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
+            </div>
+            <div class="tab-pane" id="IM">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[2]['IM-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
+            </div>
+            <div class="tab-pane" id="SKT">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[3]['SKT-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
+            </div>
+            <div class="tab-pane" id="ROX">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[4]['ROX-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
+            </div>
+            <div class="tab-pane" id="SSG">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[5]['SSG-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
             </div>
             <div class="tab-pane" id="LGD">
-                ddd
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[6]['LGD-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
             </div>
-            <div class="tab-pane" id="Snake">
-                eee
+            <div class="tab-pane" id="SS">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[7]['SS-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
             </div>
             <div class="tab-pane" id="IG">
-                ggg
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[8]['IG-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
             </div>
             <div class="tab-pane" id="WE">
-                hhh
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[9]['WE-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
+            </div>
+            <div class="tab-pane" id="OMG">
+                <div class="table-responsive" align="center">
+                    <table class="table table-stripped table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>比赛ID</th>
+                            <th>位置</th>
+                            <th>游戏ID</th>
+                            <th>段位</th>
+                            <th>分数</th>
+                            <th>隐藏分</th>
+                            <th>胜场</th>
+                            <th>胜率</th>
+                            <th>20场胜率</th>
+                            <th>20场KDA</th>
+                            <th>20场击杀参与率</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for td in teamdata[10]['OMG-data'] %}
+                            <tr>
+                                <td>{{ td.rank }}</td>
+                                <td><a href="#">{{ td.player_name }}</a></td>
+                                <td><a href="#">{{ td.player_place }}</a></td>
+                                <td><a href="#">{{ td.game_id }}</a></td>
+                                <td>{{ td.tier }}</td>
+                                <td>{{ td.lp }}</td>
+                                <td>{{ td.mmr }}</td>
+                                <td>{{ td.total_win }}</td>
+                                <td>{{ td.total_win_ratio }}</td>
+                                <td>{{ td.twentywinratio }}</td>
+                                <td>{{ td.twentyavgkda }}</td>
+                                <td>{{ td.twentyavgck }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a class="btn btn-primary" href="{{ url_for('.query') }}" role="button">查看更多</a>
+                </div>
             </div>
         </div>
     </div>
