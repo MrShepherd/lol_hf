@@ -24,9 +24,6 @@ hr.divider {
 }
 
 /*nav*/
-#nav-tab-css {
-    margin-bottom: 40px;
-}
 
 .btn-grp {
     margin: 35px;
@@ -43,8 +40,12 @@ hr.divider {
 }
 
 /*index-placedata*/
-.tab-content td a{
+.tab-content td a {
     color: #000;
+}
+
+.tab-content td {
+    margin: 0 auto;
 }
 
 /*left_filter*/
@@ -66,13 +67,13 @@ hr.divider {
 
 .panel-body ul {
     list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .panel-body li {
     float: left;
-    padding: 0px 5px;
+    padding: 0 5px;
     width: 33%;
 }
 
@@ -99,8 +100,8 @@ hr.divider {
 
 .player_list ul {
     list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .player_list li {
@@ -117,7 +118,7 @@ hr.divider {
 }
 
 .player_list .caption {
-    padding: 0px;
+    padding: 0;
     text-align: center;
     font-size: 18px;
 }
