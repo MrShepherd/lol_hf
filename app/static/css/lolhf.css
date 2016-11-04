@@ -54,7 +54,7 @@ hr.divider {
     padding-right: 100px;
 }
 
-.navbar p{
+.navbar p {
     padding-right: 20px;
 }
 
@@ -70,6 +70,11 @@ hr.divider {
 
 .tab-content td {
     margin: 0 auto;
+}
+
+/*table*/
+.table-responsive td a {
+    color: black;
 }
 
 /*left_filter*/

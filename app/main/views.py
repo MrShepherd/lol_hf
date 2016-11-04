@@ -15,7 +15,7 @@ def index():
 
 @main.route('/ladder', methods=['GET'])
 def ladder():
-    ladder_data = queries.get_full_ladder()
+    ladder_data = queries.get_full_ladder()['data']
     return render_template('ladder.html', ladder_data=ladder_data)
 
 
