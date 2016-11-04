@@ -25,7 +25,7 @@ def query():
     return render_template('query.html', ladder_data=ladder_data)
 
 
-@main.route('/sponsor', methods=['GET'])
+@main.route('/help', methods=['GET'])
 def sponsor():
     flash('test')
-    return render_template('sponsor.html')
+    return render_template('help.html')

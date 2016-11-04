@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">{{ super() }}
 {% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="shotcut icon" href="{{ url_for('static',filename='img/icon/corn-5.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static',filename='img/icon/corn-5.png') }}" type="image/x-icon">
+{% endblock %}
 {% block styles %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/lolhf.css') }}">
@@ -18,7 +23,7 @@
     ('/', 'index', '首页'),
     ('/ladder', 'ladder', '天梯'),
     ('/query', 'query', '查询'),
-    ('/sponsor','sponsor','赞助')
+    ('/help','help','参与')
     ] -%}
     {% set active_page = active_page|default('index') -%}
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -31,7 +36,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="{{ url_for('main.index') }}" class="navbar-brand">
-                    <img src="" alt="LOL">
+                    <img src="{{ url_for('static',filename='img/icon/corn-4.png') }}" width="30" height="40" alt="LOL">
                 </a>
             </div>
             <div class="collapse navbar-collapse">

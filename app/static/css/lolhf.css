@@ -2,6 +2,11 @@ body {
     padding-top: 70px;
 }
 
+/*container*/
+.container {
+    width: 100%;
+}
+
 /*carousel*/
 .carousel {
     height: 400px;
@@ -32,6 +37,16 @@ hr.divider {
 
 .navbar-btn {
     margin-left: 10px;
+}
+
+.navbar-brand img {
+    position: absolute;
+    left: 80px;
+    top: 6px;
+}
+
+.navbar-left{
+    padding-left: 100px;
 }
 
 /*index-top10*/

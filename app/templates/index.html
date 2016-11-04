@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% set active_page = 'index' -%}
-{% block title %}首页-撸韩服{% endblock %}
+{% block title %}&nbsp;&nbsp;&nbsp;首页-撸韩服{% endblock %}
 {% block styles %}
     {{ super() }}
     <style type="text/css">
@@ -83,11 +83,12 @@
                         {% for td in top10data %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
@@ -107,14 +108,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for td in top10data %}
+                        {% for td in lpltop10data %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
@@ -135,14 +137,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for td in top10data %}
+                        {% for td in cntop10data %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
@@ -172,7 +175,6 @@
                             <th>比赛ID</th>
                             <th>战队</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -186,14 +188,14 @@
                         {% for td in placedata[0]['ADC-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_team_short_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -216,7 +218,6 @@
                             <th>比赛ID</th>
                             <th>战队</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -230,14 +231,14 @@
                         {% for td in placedata[1]['\u8f85\u52a9-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_team_short_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -260,7 +261,6 @@
                             <th>比赛ID</th>
                             <th>战队</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -274,14 +274,14 @@
                         {% for td in placedata[2]['\u4e2d\u5355-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_team_short_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -304,7 +304,6 @@
                             <th>比赛ID</th>
                             <th>战队</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -318,14 +317,14 @@
                         {% for td in placedata[3]['\u6253\u91ce-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_team_short_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -348,7 +347,6 @@
                             <th>比赛ID</th>
                             <th>战队</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -362,14 +360,14 @@
                         {% for td in placedata[4]['\u4e0a\u5355-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_team_short_name }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -411,7 +409,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -425,13 +422,13 @@
                         {% for td in teamdata[0]['EDG-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -454,7 +451,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -468,13 +464,13 @@
                         {% for td in teamdata[1]['RNG-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -497,7 +493,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -511,13 +506,13 @@
                         {% for td in teamdata[2]['IM-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -540,7 +535,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -554,13 +548,13 @@
                         {% for td in teamdata[3]['SKT-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -583,7 +577,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -597,13 +590,13 @@
                         {% for td in teamdata[4]['ROX-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -626,7 +619,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -640,13 +632,13 @@
                         {% for td in teamdata[5]['SSG-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -669,7 +661,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -683,13 +674,13 @@
                         {% for td in teamdata[6]['LGD-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -712,7 +703,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -726,13 +716,13 @@
                         {% for td in teamdata[7]['SS-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -755,7 +745,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -769,13 +758,13 @@
                         {% for td in teamdata[8]['IG-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -798,7 +787,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -812,13 +800,13 @@
                         {% for td in teamdata[9]['WE-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>
@@ -841,7 +829,6 @@
                             <th>比赛ID</th>
                             <th>位置</th>
                             <th>游戏ID</th>
-                            <th>段位</th>
                             <th>分数</th>
                             <th>隐藏分</th>
                             <th>胜场</th>
@@ -855,13 +842,13 @@
                         {% for td in teamdata[10]['OMG-data'] %}
                             <tr>
                                 <td>{{ td.rank }}</td>
-                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25" ><a
+                                <td><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="..." class="img-circle" width="25" height="25"><a
                                         href="#">{{ td.player_name }}</a></td>
                                 <td><a href="#">{{ td.player_place }}</a></td>
-                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}"  class="img-circle defaultimg" width="25" height="25" onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
+                                <td><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" class="img-circle defaultimg" width="25" height="25"
+                                         onerror="this.src='defaultimg.png'"><a href="#">{{ td.game_id }}</a>
                                 </td>
-                                <td>{{ td.tier }}</td>
-                                <td>{{ td.lp }}</td>
+                                <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="..." width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                                 <td>{{ td.mmr }}</td>
                                 <td>{{ td.total_win }}</td>
                                 <td>{{ td.total_win_ratio }}</td>

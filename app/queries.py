@@ -13,19 +13,19 @@ def to_dict(data_tuple_list):
 
 
 def get_ladder_top10():
-    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.lp).order_by(Summary.rank).all()[:10]
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.tier, Summary.lp).order_by(Summary.rank).all()[:10]
     data = to_dict(result)
     return data
 
 
 def get_ladder_top10_lpl():
-    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.lp).filter(Summary.player_team_league == 'LPL').order_by(Summary.rank).all()[:10]
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.tier, Summary.lp).filter(Summary.player_team_league == 'LPL').order_by(Summary.rank).all()[:10]
     data = to_dict(result)
     return data
 
 
 def get_ladder_top10_cn():
-    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.lp).filter(Summary.player_country == 'CN').order_by(Summary.rank).all()[:10]
+    result = db.session.query(Summary.player_name, Summary.rank, Summary.game_id, Summary.tier, Summary.lp).filter(Summary.player_country == 'CN').order_by(Summary.rank).all()[:10]
     data = to_dict(result)
     return data
 
