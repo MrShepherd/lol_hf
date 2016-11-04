@@ -33,6 +33,7 @@ hr.divider {
 .btn-grp {
     margin: 35px;
     text-align: center;
+    padding-right: 100px;
 }
 
 .navbar-btn {
@@ -45,8 +46,16 @@ hr.divider {
     top: 6px;
 }
 
-.navbar-left{
+.navbar-left {
     padding-left: 100px;
+}
+
+.navbar-right {
+    padding-right: 100px;
+}
+
+.navbar p{
+    padding-right: 20px;
 }
 
 /*index-top10*/
