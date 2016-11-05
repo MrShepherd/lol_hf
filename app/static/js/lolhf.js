@@ -1,4 +1,16 @@
 $(function () {
+    $("a.btn-ladder").click(function () {
+        $(this).removeClass("btn-default");
+        $(this).addClass("btn-primary");
+        $(this).siblings().removeClass("btn-primary");
+        $(this).siblings().addClass("btn-default");
+        var url = this.href;
+        var args = {"type": this.id};
+        $(".table-ladder").empty().load(url, args);
+        return false;
+    });
+});
+$(function () {
     var t = document.getElementsByClassName("defaultimg");
     for (var i = 0; i < t.length; i++) {
         t.item(i).onerror = function () {
@@ -6,10 +18,4 @@ $(function () {
             this.onerror = null;
         }
     }
-    $('.navbar-left li').click(function (e) {
-        $(this).addClass('active').siblings().removeClass('active');
-        // e.preventDefault();
-        // $(this).click();
-    });
-    // $('.navbar-left .active').click();
 });

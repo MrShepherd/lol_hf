@@ -98,7 +98,7 @@ def get_full_ladder():
 def get_pro_ladder():
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
                               Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
-        Summary.player_team_short_name != '路人').order_by(Summary.rank).all()
+        Summary.player_team_short_name != '').order_by(Summary.rank).all()[:100]
     data = to_dict(result)
     return data
 
@@ -106,7 +106,7 @@ def get_pro_ladder():
 def get_lpl_ladder():
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
                               Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
-        Summary.player_team_league == 'LPL').order_by(Summary.rank).all()
+        Summary.player_team_league == 'LPL').order_by(Summary.rank).all()[:100]
     data = to_dict(result)
     return data
 
@@ -114,7 +114,7 @@ def get_lpl_ladder():
 def get_cn_ladder():
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
                               Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
-        or_(Summary.player_country == 'CN'), Summary.player_country == 'TW').order_by(Summary.rank).all()
+        or_(Summary.player_country == 'CN', Summary.player_country == 'TW')).order_by(Summary.rank).all()[:100]
     data = to_dict(result)
     return data
 
@@ -122,7 +122,7 @@ def get_cn_ladder():
 def get_nonpro_ladder():
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
                               Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
-        Summary.player_place == '路人').order_by(Summary.rank).all()
+        Summary.player_place == '路人').order_by(Summary.rank).all()[:100]
     data = to_dict(result)
     return data
 

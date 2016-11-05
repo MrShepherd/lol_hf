@@ -1,5 +1,6 @@
+from flask import render_template, flash, request
+
 from . import main
-from flask import render_template, flash
 from .. import queries
 
 
@@ -13,10 +14,30 @@ def index():
     return render_template('index.html', top10data=top10data, lpltop10data=lpltop10data, cntop10data=cntop10data, placedata=placedata, teamdata=teamdata)
 
 
-@main.route('/ladder', methods=['GET'])
+@main.route('/ladder', methods=['GET', 'POST'])
 def ladder():
-    ladder_data = queries.get_full_ladder()['data']
-    return render_template('ladder.html', ladder_data=ladder_data)
+    if request.method == 'GET':
+        ladder_type = request.args.get('type')
+    elif request.method == 'POST':
+        ladder_type = request.form['type']
+    if ladder_type is None:
+        ladder_data = queries.get_full_ladder()['data']
+        return render_template('full-ladder.html', ladder_data=ladder_data)
+    if ladder_type == 'full':
+        ladder_data = queries.get_full_ladder()['data']
+        return render_template('ladder.html', ladder_data=ladder_data)
+    if ladder_type == 'pro':
+        ladder_data = queries.get_pro_ladder()['data']
+        return render_template('ladder.html', ladder_data=ladder_data)
+    if ladder_type == 'lpl':
+        ladder_data = queries.get_lpl_ladder()['data']
+        return render_template('ladder.html', ladder_data=ladder_data)
+    if ladder_type == 'cn':
+        ladder_data = queries.get_cn_ladder()['data']
+        return render_template('ladder.html', ladder_data=ladder_data)
+    if ladder_type == 'nonpro':
+        ladder_data = queries.get_nonpro_ladder()['data']
+        return render_template('ladder.html', ladder_data=ladder_data)
 
 
 @main.route('/query', methods=['GET'])

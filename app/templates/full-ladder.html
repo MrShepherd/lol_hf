@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% set active_page = 'ladder' -%}
+{% block title %}&nbsp;&nbsp;&nbsp;天梯-撸韩服{% endblock %}
+{% block pagecontent %}
+    <div class="page-header"><h1>天梯</h1></div>
+    <div class="btn-grp btn-padding">
+        <a id="full" class="btn btn-primary btn-ladder" href="{{ url_for('main.ladder') }}" role="button">查看完整天梯</a>
+        <a id="pro" class="btn btn-default btn-ladder" href="{{ url_for('main.ladder') }}" role="button">只看职业选手</a>
+        <a id="lpl" class="btn btn-default btn-ladder" href="{{ url_for('main.ladder') }}" role="button">只看LPL选手</a>
+        <a id="cn" class="btn btn-default btn-ladder" href="{{ url_for('main.ladder') }}" role="button">只看国人</a>
+        <a id="nonpro" class="btn btn-default btn-ladder" href="{{ url_for('main.ladder') }}" role="button">只看路人王</a>
+        <a class="btn btn-default" href="{{ url_for('main.query') }}" role="button">更多查询方式</a>
+    </div>
+    <div class="table-responsive table-ladder">
+        <table class="table table-stripped table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>比赛ID</th>
+                <th>队伍</th>
+                <th>位置</th>
+                <th>游戏ID</th>
+                <th>分数</th>
+                <th>隐藏分</th>
+                <th>胜场</th>
+                <th>胜率</th>
+                <th>近20场胜率</th>
+                <th>近20场KDA</th>
+                <th>近20场击杀参与率</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for td in ladder_data %}
+                <tr>
+                    <td>{{ td.rank }}<img src="{{ url_for('static',filename='img/nation/'~td.player_country~'.png') }}" alt="" class="img-rounded" width="30" height="20"></td>
+                    <td><a href="#"><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="" class="img-circle" width="25" height="25">{{ td.player_name }}</a></td>
+                    <td><a href="#">{{ td.player_team_short_name }}<img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="" class="img-circle" width="25"
+                                                                        height="25"></a></td>
+                    <td>{{ td.player_place }}</td>
+                    <td><a href="#"><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" alt="" class="img-circle" width="25" height="25">{{ td.game_id }}</a></td>
+                    <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="" class="img-circle" width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
+                    <td>{{ td.mmr }}</td>
+                    <td>{{ td.total_win }}</td>
+                    <td>{{ td.total_win_ratio }}</td>
+                    <td>{{ td.twentywinratio }}</td>
+                    <td>{{ td.twentyavgkda }}</td>
+                    <td>{{ td.twentyavgck }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a class="btn btn-default" href="#" role="button">点击查看更多</a>
+{% endblock %}
