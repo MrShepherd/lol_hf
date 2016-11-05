@@ -80,6 +80,7 @@ hr.divider {
 /*left_filter*/
 .left_filter {
     float: left;
+    padding-top: 30px;
     padding-left: 50px;
 }
 
@@ -128,6 +129,7 @@ hr.divider {
     margin-left: 200px;
     padding-left: 80px;
     padding-right: 80px;
+    padding-top: 30px;
 }
 
 .player_list ul {

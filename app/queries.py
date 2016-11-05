@@ -158,6 +158,17 @@ def get_nonpro_ladder(page=None):
     return data
 
 
-def get_query_data():
-    data = ''
+def get_query_data(page=None, **kw):
+    if page is None:
+        startindex = 0
+        endindex = 100
+    else:
+        startindex = 100 + (page - 1) * 20 + 1
+        endindex = startindex + 19
+    print(kw)
+    result = db.session.query(Summary.player_name, Summary.player_country, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
+                              Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
+        Summary.player_country == 'CN').filter(Summary.player_team_league == 'LPL').filter(Summary.player_team_short_name == 'EDG').filter(Summary.player_place == '打野').order_by(Summary.rank).all()[
+             startindex:endindex]
+    data = to_dict(result)
     return data

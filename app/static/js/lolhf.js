@@ -37,15 +37,14 @@ $(function () {
     });
 });
 $(function () {
-    var winH = $(window).height();
     var page = 1;
     $(window).scroll(function () {
-        var pageH = $(document.body).height();
-        var scrollT = $(window).scrollTop(); //滚动条top
-        var aa = (pageH - winH - scrollT) / winH;
         var url = $('.btn-primary.btn-ladder').attr('href');
+        if (url == '' || url == undefined || url == null) {
+            url = '/query';
+        }
         var args = {'page': page};
-        if (aa < 0.02) {
+        if ($(document).height() - $(this).scrollTop() - $(this).height()<1) {
             $.post(url, args, function (data) {
                 if (data) {
                     $('.ladder-row').append(data);

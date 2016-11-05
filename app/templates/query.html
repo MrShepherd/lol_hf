@@ -68,7 +68,7 @@
                     <img src="{{ url_for('static',filename='img/tmp/tmp_img.jpg') }}" alt="..." width="180" height="180">
                 </a>
                 <div class="caption">
-                    <a href="#">UZI</a>
+                    <a href="#">LOOPER</a>
                 </div>
             </div>
         </div>
@@ -133,51 +133,40 @@
             </div>
         </div>
     </div>
-    <!-- <div class="player_list">
-        <ul>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-        </ul>
-        <ul>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-        </ul>
-        <ul>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-            <li><a href="#"><img class="img-thumbnail" src="../static/img/tmp/tmp_img.jpg" alt="" width="200" height="200"></a></li>
-        </ul>
-    </div> -->
-    <div class="table-responsive table_style">
+    <div class="table-responsive table-ladder table_style">
         <table class="table table-stripped table-hover">
             <thead>
             <tr>
-                <th>排名</th>
-                <th>比赛ID</th>
-                <th>队伍</th>
+                <th>#</th>
+                <th class="withpro">比赛ID</th>
+                <th class="withpro">队伍</th>
+                <th class="withpro">位置</th>
                 <th>游戏ID</th>
-                <th>段位</th>
                 <th>分数</th>
                 <th>隐藏分</th>
+                <th>胜场</th>
                 <th>胜率</th>
+                <th>近20场胜率</th>
+                <th>近20场KDA</th>
+                <th>近20场击杀参与率</th>
             </tr>
             </thead>
-            <tbody>
-            {% for td in ladder_data %}
+            <tbody class="ladder-row">
+            {% for td in query_data %}
                 <tr>
-                    <td>{{ td.rank }}</td>
-                    <td>{{ td.name }}</td>
-                    <td>{{ td.team }}</td>
-                    <td>{{ td.id }}</td>
-                    <td>{{ td.tier }}</td>
-                    <td>{{ td.lp }}</td>
+                    <td>{{ td.rank }}<img src="{{ url_for('static',filename='img/nation/'~td.player_country~'.png') }}" alt="" class="img-rounded" width="30" height="20"></td>
+                    <td><a href="#"><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="" class="img-circle" width="25" height="25">{{ td.player_name }}</a></td>
+                    <td><a href="#">{{ td.player_team_short_name }}<img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="" class="img-circle" width="25"
+                                                                        height="25"></a></td>
+                    <td>{{ td.player_place }}</td>
+                    <td><a href="#"><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" alt="" class="img-circle" width="25" height="25">{{ td.game_id }}</a></td>
+                    <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="" class="img-circle" width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
                     <td>{{ td.mmr }}</td>
-                    <td>{{ td.winratio }}</td>
+                    <td>{{ td.total_win }}</td>
+                    <td>{{ td.total_win_ratio }}</td>
+                    <td>{{ td.twentywinratio }}</td>
+                    <td>{{ td.twentyavgkda }}</td>
+                    <td>{{ td.twentyavgck }}</td>
                 </tr>
             {% endfor %}
             </tbody>

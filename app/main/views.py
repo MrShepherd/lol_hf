@@ -44,10 +44,19 @@ def ladder():
         return render_template('ladder.html', ladder_data=ladder_data, ladder_type=ladder_type)
 
 
-@main.route('/query', methods=['GET'])
+@main.route('/query', methods=['GET', 'POST'])
 def query():
-    ladder_data = queries.get_query_data()
-    return render_template('query.html', ladder_data=ladder_data)
+    if request.form.get('page') is not None:
+        page = int(request.form.get('page'))
+    else:
+        page = None
+    args = request.form
+    if request.method == 'GET':
+        query_data = queries.get_query_data(page, **args)['data']
+        return render_template('query.html', query_data=query_data)
+    if request.method == 'POST':
+        ladder_data = queries.get_query_data(page, **args)['data']
+        return render_template('ladder.html', ladder_data=ladder_data)
 
 
 @main.route('/help', methods=['GET'])
