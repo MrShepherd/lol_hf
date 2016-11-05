@@ -1,16 +1,4 @@
 $(function () {
-    $("a.btn-ladder").click(function () {
-        $(this).removeClass("btn-default");
-        $(this).addClass("btn-primary");
-        $(this).siblings().removeClass("btn-primary");
-        $(this).siblings().addClass("btn-default");
-        var url = this.href;
-        var args = {"type": this.id};
-        $(".table-ladder").empty().load(url, args);
-        return false;
-    });
-});
-$(function () {
     var t = document.getElementsByClassName("defaultimg");
     for (var i = 0; i < t.length; i++) {
         t.item(i).onerror = function () {
@@ -19,3 +7,58 @@ $(function () {
         }
     }
 });
+$(function () {
+    $("a.btn-ladder").click(function () {
+        $(this).removeClass("btn-default");
+        $(this).addClass("btn-primary");
+        $(this).siblings().removeClass("btn-primary");
+        $(this).siblings().addClass("btn-default");
+        if ($(".btn-ladder.btn-primary").text() == '只看路人王') {
+            $("th").remove('.withpro');
+        } else {
+            $("th").remove();
+            var th1 = '<th>#</th>';
+            var th2 = '<th class="withpro">比赛ID</th>';
+            var th3 = '<th class="withpro">队伍</th>';
+            var th4 = '<th class="withpro">位置</th>';
+            var th5 = '<th>游戏ID</th>';
+            var th6 = '<th>分数</th>';
+            var th7 = '<th>隐藏分</th>';
+            var th8 = '<th>胜场</th>';
+            var th9 = '<th>胜率</th>';
+            var th10 = '<th>近20场胜率</th>';
+            var th11 = '<th>近20场KDA</th>';
+            var th12 = '<th>近20场击杀参与率</th>';
+            $("thead>tr").append(th1, th2, th3, th4, th5, th6, th7, th8, th9, th10, th11, th12);
+        }
+        var url = this.href;
+        $(".ladder-row").empty().load(url);
+        return false;
+    });
+});
+$(function () {
+    var winH = $(window).height();
+    var page = 1;
+    $(window).scroll(function () {
+        var pageH = $(document.body).height();
+        var scrollT = $(window).scrollTop(); //滚动条top
+        var aa = (pageH - winH - scrollT) / winH;
+        var url = $('.btn-primary.btn-ladder').attr('href');
+        var args = {'page': page};
+        if (aa < 0.02) {
+            $.post(url, args, function (data) {
+                if (data) {
+                    $('.ladder-row').append(data);
+                    page++;
+                } else {
+                    // alert('no more data');
+                    return false;
+                }
+            });
+        }
+    });
+});
+
+
+
+
