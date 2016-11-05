@@ -80,6 +80,7 @@ hr.divider {
 /*left_filter*/
 .left_filter {
     float: left;
+    padding-left: 50px;
 }
 
 .panel {
@@ -125,6 +126,8 @@ hr.divider {
 .player_list {
     clear: right;
     margin-left: 200px;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .player_list ul {
@@ -140,16 +143,27 @@ hr.divider {
 
 .player_list a.thumbnail {
     margin-bottom: 10px;
+    width: 200px;
 }
 
 .player_list .thumbnail {
     margin-bottom: 15px;
+    width: 220px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .player_list .caption {
     padding: 0;
     text-align: center;
     font-size: 18px;
+}
+
+.player_list .col-md-3 {
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 /*table*/
