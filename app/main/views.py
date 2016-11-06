@@ -26,37 +26,34 @@ def ladder():
         page = None
     if ladder_type is None:
         ladder_data = queries.get_full_ladder(page)['data']
-        return render_template('full-ladder.html', ladder_data=ladder_data, ladder_type=ladder_type)
+        return render_template('ladder.html', data=ladder_data, ladder_type=ladder_type)
     if ladder_type == 'full':
         ladder_data = queries.get_full_ladder(page)['data']
-        return render_template('ladder.html', ladder_data=ladder_data)
+        return render_template('tablerow.html', data=ladder_data)
     if ladder_type == 'pro':
         ladder_data = queries.get_pro_ladder(page)['data']
-        return render_template('ladder.html', ladder_data=ladder_data)
+        return render_template('tablerow.html', data=ladder_data)
     if ladder_type == 'lpl':
         ladder_data = queries.get_lpl_ladder(page)['data']
-        return render_template('ladder.html', ladder_data=ladder_data)
+        return render_template('tablerow.html', data=ladder_data)
     if ladder_type == 'cn':
         ladder_data = queries.get_cn_ladder(page)['data']
-        return render_template('ladder.html', ladder_data=ladder_data)
+        return render_template('tablerow.html', data=ladder_data)
     if ladder_type == 'nonpro':
         ladder_data = queries.get_nonpro_ladder(page)['data']
-        return render_template('ladder.html', ladder_data=ladder_data, ladder_type=ladder_type)
+        return render_template('tablerow.html', data=ladder_data, ladder_type=ladder_type)
 
 
 @main.route('/query', methods=['GET', 'POST'])
 def query():
-    if request.form.get('page') is not None:
-        page = int(request.form.get('page'))
-    else:
-        page = None
-    args = request.form
     if request.method == 'GET':
-        query_data = queries.get_query_data(page, **args)['data']
+        args = {}
+        query_data = queries.get_query_data(**args)['data']
         return render_template('query.html', query_data=query_data)
     if request.method == 'POST':
-        ladder_data = queries.get_query_data(page, **args)['data']
-        return render_template('ladder.html', ladder_data=ladder_data)
+        args = request.form
+        query_data = queries.get_query_data(**args)['data']
+        return render_template('tablerow.html', data=query_data, ladder_type='query')
 
 
 @main.route('/help', methods=['GET'])

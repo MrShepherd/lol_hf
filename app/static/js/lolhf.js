@@ -40,14 +40,18 @@ $(function () {
     var page = 1;
     $(window).scroll(function () {
         var url = $('.btn-primary.btn-ladder').attr('href');
+        var args = {'page': page};
         if (url == '' || url == undefined || url == null) {
             url = '/query';
+            $(".left_filter .active").each(function () {
+                args[$(this).parent().parent().attr("class")] = $(this).text();
+            });
+            args['page'] = page;
         }
-        var args = {'page': page};
-        if ($(document).height() - $(this).scrollTop() - $(this).height()<1) {
+        if ($(document).height() - $(this).scrollTop() - $(this).height() < 1) {
             $.post(url, args, function (data) {
                 if (data) {
-                    $('.ladder-row').append(data);
+                    $(".ladder-row").append(data);
                     page++;
                 } else {
                     // alert('no more data');
@@ -55,6 +59,25 @@ $(function () {
                 }
             });
         }
+    });
+});
+$(function () {
+    $(".left_filter a").click(function () {
+        $(this).parent().siblings().children().removeClass("active");
+        $(this).addClass("active");
+        var url = '/query';
+        var args = {};
+        $(".left_filter .active").each(function () {
+            args[$(this).parent().parent().attr("class")] = $(this).text();
+        });
+        $.post(url, args, function (data) {
+            if (data) {
+                $(".ladder-row").empty().append(data);
+            } else {
+                alert('指定条件没有查询到数据');
+                return false;
+            }
+        });
     });
 });
 

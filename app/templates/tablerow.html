@@ -1,0 +1,19 @@
+{% for td in data %}
+    <tr>
+        <td>{{ td.rank }}<img src="{{ url_for('static',filename='img/nation/'~td.player_country~'.png') }}" alt="" class="img-rounded" width="30" height="20"></td>
+        {% if  ladder_type !='nonpro' %}
+        <td><a href="#"><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="" class="img-circle" width="25" height="25">{{ td.player_name }}</a></td>
+        <td><a href="#">{{ td.player_team_short_name }}<img src="{{ url_for('static',filename='img/team/'~td.player_team_short_name~'.png') }}" alt="" class="img-circle" width="25"
+                                                            height="25"></a></td>
+        <td>{{ td.player_place }}</td>
+        {% endif %}
+        <td><a href="#"><img src="{{ url_for('static',filename='img/gameid/'~td.game_id~'.png') }}" alt="" class="img-circle" width="25" height="25">{{ td.game_id }}</a></td>
+        <td><img src="{{ url_for('static',filename='img/tier/'~td.tier~'.png') }}" alt="" class="img-circle" width="25" height="25" title="{{ td.tier }}">{{ td.lp }}</td>
+        <td>{{ td.mmr }}</td>
+        <td>{{ td.total_win }}</td>
+        <td>{{ td.total_win_ratio }}</td>
+        <td>{{ td.twentywinratio }}</td>
+        <td>{{ td.twentyavgkda }}</td>
+        <td>{{ td.twentyavgck }}</td>
+    </tr>
+{% endfor %}

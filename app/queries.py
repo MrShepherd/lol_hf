@@ -158,17 +158,64 @@ def get_nonpro_ladder(page=None):
     return data
 
 
-def get_query_data(page=None, **kw):
-    if page is None:
+def get_query_data(**kw):
+    if kw.get('page') is None or len(kw.get('page')) == 0:
         startindex = 0
         endindex = 100
     else:
+        page = int(kw.get('page')[0])
         startindex = 100 + (page - 1) * 20 + 1
         endindex = startindex + 19
-    print(kw)
+    # print(kw)
+    league_list = ['LPL', 'LCK', 'LMS', 'LCS-EU', 'LCS-NA']
+    country_list = ['CN', 'KR', 'TW', 'VN', 'US']
+    team_list = ['EDG', 'RNG', 'IM', 'SKT', 'ROX', 'SSG', 'LGD', 'SS', 'IG', 'WE', 'OMG']
+    if kw is not None and len(kw) > 0:
+        # league
+        if '全部' in kw.get('league'):
+            column_league_exp = "1==1"
+        elif '其他' in kw.get('league'):
+            column_league_exp = "~Summary.player_team_league.in_(league_list)"
+        elif 'LCS' in kw.get('league'):
+            column_league_exp = "Summary.player_team_league.in_(['LCS-EU','LCS-NA'])"
+        else:
+            column_league_exp = "Summary.player_team_league.in_(kw.get('league'))"
+        # country
+        if '全部' in kw.get('country'):
+            column_country_exp = "1==1"
+        elif '其他' in kw.get('country'):
+            column_country_exp = "~Summary.player_country.in_(country_list)"
+        elif '中国' in kw.get('country'):
+            column_country_exp = "Summary.player_country.in_(['CN','TW'])"
+        elif '韩国' in kw.get('country'):
+            column_country_exp = "Summary.player_country.in_(['KR'])"
+        elif '台湾' in kw.get('country'):
+            column_country_exp = "Summary.player_country.in_(['TW'])"
+        elif '美国' in kw.get('country'):
+            column_country_exp = "Summary.player_country.in_(['US'])"
+        elif '越南' in kw.get('country'):
+            column_country_exp = "Summary.player_country.in_(['VN'])"
+        else:
+            column_country_exp = "1==1"
+        # team
+        if '全部' in kw.get('team'):
+            column_team_exp = "1==1"
+        elif '其他' in kw.get('team'):
+            column_team_exp = "~Summary.player_team_short_name.in_(team_list)"
+        else:
+            column_team_exp = "Summary.player_team_short_name.in_(kw.get('team'))"
+        # place
+        if '全部' in kw.get('place'):
+            column_place_exp = "1==1"
+        else:
+            column_place_exp = "Summary.player_place.in_(kw.get('place'))"
+    else:
+        column_league_exp = "1==1"
+        column_country_exp = "1==1"
+        column_team_exp = "1==1"
+        column_place_exp = "1==1"
     result = db.session.query(Summary.player_name, Summary.player_country, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
                               Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
-        Summary.player_country == 'CN').filter(Summary.player_team_league == 'LPL').filter(Summary.player_team_short_name == 'EDG').filter(Summary.player_place == '打野').order_by(Summary.rank).all()[
-             startindex:endindex]
+        eval(column_country_exp)).filter(eval(column_league_exp)).filter(eval(column_team_exp)).filter(eval(column_place_exp)).order_by(Summary.rank).all()[startindex:endindex]
     data = to_dict(result)
     return data
