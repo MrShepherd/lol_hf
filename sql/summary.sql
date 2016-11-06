@@ -22,3 +22,6 @@ INSERT INTO summary
             )
     ) c
       ON b.player_name = c.player_name;
+
+update summary set player_team_short_name='' WHERE player_team_short_name='路人';
+update summary set player_country='' where player_country='unknown';
