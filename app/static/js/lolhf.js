@@ -38,6 +38,7 @@ $(function () {
 });
 $(function () {
     var page = 1;
+    var flag = 1;
     $(window).scroll(function () {
         var url = $('.btn-primary.btn-ladder').attr('href');
         var args = {'page': page};
@@ -47,14 +48,16 @@ $(function () {
                 args[$(this).parent().parent().attr("class")] = $(this).text();
             });
             args['page'] = page;
+            args['region'] = 'list';
         }
-        if ($(document).height() - $(this).scrollTop() - $(this).height() < 1) {
+        if ($(document).height() - $(this).scrollTop() - $(this).height() < 1 && flag == 1) {
             $.post(url, args, function (data) {
                 if (data) {
                     $(".ladder-row").append(data);
                     page++;
                 } else {
                     // alert('no more data');
+                    flag=0;
                     return false;
                 }
             });
