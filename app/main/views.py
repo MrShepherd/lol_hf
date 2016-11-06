@@ -52,8 +52,12 @@ def query():
         return render_template('query.html', query_data=query_data)
     if request.method == 'POST':
         args = request.form
-        query_data = queries.get_query_data(**args)['data']
-        return render_template('tablerow.html', data=query_data, ladder_type='query')
+        if 'list' in args.get('region'):
+            query_data = queries.get_query_data(**args)['data']
+            return render_template('tablerow.html', data=query_data, ladder_type='query')
+        if 'img' in args.get('region'):
+            query_data = queries.get_query_data(**args)['data']
+            return render_template('playerlistimg.html', data=query_data)
 
 
 @main.route('/help', methods=['GET'])

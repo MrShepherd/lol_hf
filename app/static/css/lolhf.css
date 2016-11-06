@@ -80,12 +80,13 @@ hr.divider {
 /*left_filter*/
 .left_filter {
     float: left;
-    padding-top: 30px;
-    padding-left: 50px;
+    padding-top: 20px;
+    padding-left: 150px;
 }
 
 .panel {
     width: 180px;
+    margin-top: 25px;
 }
 
 .panel-heading {
@@ -126,10 +127,11 @@ hr.divider {
 /*player_list*/
 .player_list {
     clear: right;
+    width: 70%;
     margin-left: 200px;
-    padding-left: 80px;
+    padding-left: 180px;
     padding-right: 80px;
-    padding-top: 30px;
+    padding-top: 50px;
 }
 
 .player_list ul {
@@ -144,13 +146,13 @@ hr.divider {
 }
 
 .player_list a.thumbnail {
-    margin-bottom: 10px;
-    width: 200px;
+    margin-bottom: 5px;
+    width: 110px;
 }
 
 .player_list .thumbnail {
     margin-bottom: 15px;
-    width: 220px;
+    width: 130px;
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 5px;
@@ -160,7 +162,7 @@ hr.divider {
 .player_list .caption {
     padding: 0;
     text-align: center;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .player_list .col-md-3 {

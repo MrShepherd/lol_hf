@@ -66,13 +66,25 @@ $(function () {
         $(this).parent().siblings().children().removeClass("active");
         $(this).addClass("active");
         var url = '/query';
-        var args = {};
+        var args1 = {};
+        var args2 = {};
         $(".left_filter .active").each(function () {
-            args[$(this).parent().parent().attr("class")] = $(this).text();
+            args1[$(this).parent().parent().attr("class")] = $(this).text();
+            args2[$(this).parent().parent().attr("class")] = $(this).text();
         });
-        $.post(url, args, function (data) {
+        args1['region'] = 'list';
+        args2['region'] = 'img';
+        $.post(url, args1, function (data) {
             if (data) {
                 $(".ladder-row").empty().append(data);
+            } else {
+                alert('指定条件没有查询到数据');
+                return false;
+            }
+        });
+        $.post(url, args2, function (data) {
+            if (data) {
+                $(".player_list").empty().append(data);
             } else {
                 alert('指定条件没有查询到数据');
                 return false;
