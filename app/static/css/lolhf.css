@@ -81,7 +81,7 @@ hr.divider {
 .left_filter {
     float: left;
     padding-top: 20px;
-    padding-left: 150px;
+    padding-left: 220px;
 }
 
 .panel {
@@ -129,7 +129,7 @@ hr.divider {
     clear: right;
     width: 70%;
     margin-left: 200px;
-    padding-left: 180px;
+    padding-left: 250px;
     padding-right: 80px;
     padding-top: 50px;
 }
@@ -168,6 +168,11 @@ hr.divider {
 .player_list .col-md-3 {
     margin-left: -10px;
     margin-right: -10px;
+}
+
+/*pager*/
+.nav-pager {
+    clear: left;
 }
 
 /*table*/

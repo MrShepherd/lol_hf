@@ -47,9 +47,9 @@ def ladder():
 @main.route('/query', methods=['GET', 'POST'])
 def query():
     if request.method == 'GET':
-        args = {}
+        args = {'listpage': '0', 'league': '全部', 'team': '全部', 'country': '全部', 'place': '全部', 'region': 'list'}
         list_query_data = queries.get_query_data(**args)['data']
-        args = {'page': '999', 'league': '全部', 'team': '全部', 'country': '全部', 'place': '全部'}
+        args = {'imgpage': '0', 'league': '全部', 'team': '全部', 'country': '全部', 'place': '全部', 'region': 'img'}
         img_query_data = queries.get_query_data(**args)['data']
         return render_template('query.html', list_query_data=list_query_data, img_query_data=img_query_data)
     if request.method == 'POST':

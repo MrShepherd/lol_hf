@@ -1,14 +1,12 @@
 {% for item in data %}
-    {% if item.player_name !='路人' %}
-        <div class="col-sm-6 col-md-2">
-            <div class="thumbnail">
-                <a href="#" class="thumbnail">
-                    <img src="{{ url_for('static',filename='img/player/'~item.player_name~'.png') }}" alt="..." width="180" height="180">
-                </a>
-                <div class="caption">
-                    <a href="#">{{ item.player_name }}</a>
-                </div>
+    <div class="col-sm-6 col-md-2">
+        <div class="thumbnail">
+            <a href="#" class="thumbnail">
+                <img src="{{ url_for('static',filename='img/player/'~item.player_name~'.png') }}" alt="..." width="180" height="180">
+            </a>
+            <div class="caption">
+                <a href="#">{{ item.player_name }}</a>
             </div>
         </div>
-    {% endif %}
+    </div>
 {% endfor %}

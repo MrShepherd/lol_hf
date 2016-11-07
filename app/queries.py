@@ -88,12 +88,12 @@ def get_hot_team():
     return data
 
 
-def get_full_ladder(page=None):
-    if page is None:
+def get_full_ladder(listpage=None):
+    if listpage is None:
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (page - 1) * 20 + 1
+        startindex = 100 + (listpage - 1) * 20 + 1
         endindex = startindex + 19
     result = db.session.query(Summary.player_name, Summary.player_country, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
                               Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).order_by(
@@ -102,12 +102,12 @@ def get_full_ladder(page=None):
     return data
 
 
-def get_pro_ladder(page=None):
-    if page is None:
+def get_pro_ladder(listpage=None):
+    if listpage is None:
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (page - 1) * 20 + 1
+        startindex = 100 + (listpage - 1) * 20 + 1
         endindex = startindex + 19
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_country, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
                               Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
@@ -116,12 +116,12 @@ def get_pro_ladder(page=None):
     return data
 
 
-def get_lpl_ladder(page=None):
-    if page is None:
+def get_lpl_ladder(listpage=None):
+    if listpage is None:
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (page - 1) * 20 + 1
+        startindex = 100 + (listpage - 1) * 20 + 1
         endindex = startindex + 19
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_country, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
                               Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
@@ -130,12 +130,12 @@ def get_lpl_ladder(page=None):
     return data
 
 
-def get_cn_ladder(page=None):
-    if page is None:
+def get_cn_ladder(listpage=None):
+    if listpage is None:
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (page - 1) * 20 + 1
+        startindex = 100 + (listpage - 1) * 20 + 1
         endindex = startindex + 19
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
                               Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
@@ -144,12 +144,12 @@ def get_cn_ladder(page=None):
     return data
 
 
-def get_nonpro_ladder(page=None):
-    if page is None:
+def get_nonpro_ladder(listpage=None):
+    if listpage is None:
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (page - 1) * 20 + 1
+        startindex = 100 + (listpage - 1) * 20 + 1
         endindex = startindex + 19
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_country, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
                               Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
@@ -159,17 +159,6 @@ def get_nonpro_ladder(page=None):
 
 
 def get_query_data(**kw):
-    if kw.get('page') is None or len(kw.get('page')) == 0:
-        startindex = 0
-        endindex = 100
-    elif '999' in kw.get('page'):
-        startindex = 0
-        endindex = 99999
-    else:
-        page = int(kw.get('page')[0])
-        startindex = 100 + (page - 1) * 20 + 1
-        endindex = startindex + 19
-    # print(kw)
     league_list = ['LPL', 'LCK', 'LMS', 'LCS-EU', 'LCS-NA']
     country_list = ['CN', 'KR', 'TW', 'VN', 'US']
     team_list = ['EDG', 'RNG', 'IM', 'SKT', 'ROX', 'SSG', 'LGD', 'SS', 'IG', 'WE', 'OMG']
@@ -217,8 +206,20 @@ def get_query_data(**kw):
         column_country_exp = "1==1"
         column_team_exp = "1==1"
         column_place_exp = "1==1"
-    result = db.session.query(Summary.player_name, Summary.player_country, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
-                              Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
-        eval(column_country_exp)).filter(eval(column_league_exp)).filter(eval(column_team_exp)).filter(eval(column_place_exp)).order_by(Summary.rank).all()[startindex:endindex]
+    if kw.get('region') is None or 'list' in kw.get('region'):
+        listpage = int(kw.get('listpage')[0])
+        liststartindex = listpage * 18
+        listendindex = liststartindex + 18
+        result = db.session.query(Summary.player_name, Summary.player_country, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier,
+                                  Summary.lp, Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
+            eval(column_country_exp)).filter(eval(column_league_exp)).filter(eval(column_team_exp)).filter(eval(column_place_exp)).order_by(Summary.rank).all()[liststartindex:listendindex]
+    elif 'img' in kw.get('region'):
+        imgpage = int(kw.get('imgpage')[0])
+        imgstartindex = imgpage * 18
+        imgendindex = imgstartindex + 18
+        result = db.session.query(Summary.player_name, Summary.player_country, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier,
+                                  Summary.lp, Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
+            eval(column_country_exp)).filter(eval(column_league_exp)).filter(eval(column_team_exp)).filter(eval(column_place_exp)).filter(Summary.player_name != '路人').order_by(Summary.rank).all()[
+                 imgstartindex:imgendindex]
     data = to_dict(result)
     return data

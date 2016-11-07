@@ -1,4 +1,5 @@
 $(function () {
+    //handel lost img error
     var t = document.getElementsByClassName("defaultimg");
     for (var i = 0; i < t.length; i++) {
         t.item(i).onerror = function () {
@@ -6,8 +7,7 @@ $(function () {
             this.onerror = null;
         }
     }
-});
-$(function () {
+    //hadle ladder page button click event
     $("a.btn-ladder").click(function () {
         $(this).removeClass("btn-default");
         $(this).addClass("btn-primary");
@@ -35,39 +35,18 @@ $(function () {
         $(".ladder-row").empty().load(url);
         return false;
     });
-});
-$(function () {
-    var page = 1;
-    var flag = 1;
-    $(window).scroll(function () {
-        var url = $('.btn-primary.btn-ladder').attr('href');
-        var args = {'page': page};
-        if (url == '' || url == undefined || url == null) {
-            url = '/query';
-            $(".left_filter .active").each(function () {
-                args[$(this).parent().parent().attr("class")] = $(this).text();
-            });
-            args['page'] = page;
-            args['region'] = 'list';
-        }
-        if ($(document).height() - $(this).scrollTop() - $(this).height() < 1 && flag == 1) {
-            $.post(url, args, function (data) {
-                if (data) {
-                    $(".ladder-row").append(data);
-                    page++;
-                } else {
-                    // alert('no more data');
-                    flag = 0;
-                    return false;
-                }
-            });
-        }
-    });
-});
-$(function () {
+    //handel click event for left filter of query page
+    var imgpage = 0;
+    var previous_able = 0;
+    var next_able = 1;
     $(".left_filter a").click(function () {
         $(this).parent().siblings().children().removeClass("active");
         $(this).addClass("active");
+        imgpage = 0;
+        previous_able = 0;
+        next_able = 1;
+        $(".nav-pager .forward").removeClass("disabled");
+        $(".nav-pager .backward").addClass("disabled");
         var url = '/query';
         var args1 = {};
         var args2 = {};
@@ -76,8 +55,9 @@ $(function () {
             args2[$(this).parent().parent().attr("class")] = $(this).text();
         });
         args1['region'] = 'list';
+        args1['listpage'] = 0;
         args2['region'] = 'img';
-        args2['page'] = '999';
+        args2['imgpage'] = 0;
         $.post(url, args1, function (data) {
             if (data) {
                 $(".ladder-row").empty().append(data);
@@ -90,11 +70,78 @@ $(function () {
             if (data) {
                 $(".player_list").empty().append(data);
             } else {
-                alert('指定条件没有查询到数据');
+                // alert('指定条件没有查询到数据');
                 return false;
             }
         });
     });
+    //handle scroll event for player table list of query page
+    var listpage = 1;
+    var scroll_flag = 1;
+    $(window).scroll(function () {
+        var url = $('.btn-primary.btn-ladder').attr('href');
+        var args = {'listpage': listpage};
+        if (url == '' || url == undefined || url == null) {
+            url = '/query';
+            $(".left_filter .active").each(function () {
+                args[$(this).parent().parent().attr("class")] = $(this).text();
+            });
+            args['listpage'] = listpage;
+            args['region'] = 'list';
+        }
+        if ($(document).height() - $(this).scrollTop() - $(this).height() < 1 && scroll_flag == 1) {
+            $.post(url, args, function (data) {
+                if (data) {
+                    $(".ladder-row").append(data);
+                    listpage++;
+                } else {
+                    // alert('no more data');
+                    scroll_flag = 0;
+                    return false;
+                }
+            });
+        }
+    });
+    //handle pager click event for player img list of query page
+    $(".nav-pager a").click(function () {
+        if (!$(this).parent().hasClass("disabled") && imgpage >= 0) {
+            var url = '/query';
+            var args = {};
+            $(".left_filter .active").each(function () {
+                args[$(this).parent().parent().attr("class")] = $(this).text();
+            });
+            if ($(this).text() == '上一页' && previous_able == 1) {
+                imgpage--;
+                next_able = 1;
+                $(".nav-pager .forward").removeClass("disabled");
+            }
+            if ($(this).text() == '下一页' && next_able == 1) {
+                imgpage++;
+                previous_able = 1;
+                $(".nav-pager .backward").removeClass("disabled");
+            }
+            args['region'] = 'img';
+            args['imgpage'] = imgpage;
+            $.post(url, args, function (data) {
+                if (data) {
+                    $(".player_list").empty().append(data);
+                } else {
+                    // alert('指定条件没有查询到数据');
+                    if (imgpage > 0) {
+                        next_able = 0;
+                        imgpage--;
+                        $(".nav-pager .forward").addClass("disabled");
+                    }
+                    if (imgpage <= 0) {
+                        previous_able = 0;
+                        imgpage++;
+                        $(".nav-pager .backward").addClass("disabled");
+                    }
+                    return false;
+                }
+            });
+        }
+    })
 });
 
 
