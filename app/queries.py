@@ -93,8 +93,8 @@ def get_full_ladder(listpage=None):
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (listpage - 1) * 20 + 1
-        endindex = startindex + 19
+        startindex = 100 + (listpage - 1) * 20
+        endindex = startindex + 20
     result = db.session.query(Summary.player_name, Summary.player_country, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
                               Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).order_by(
         Summary.rank).all()[startindex:endindex]
@@ -107,8 +107,8 @@ def get_pro_ladder(listpage=None):
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (listpage - 1) * 20 + 1
-        endindex = startindex + 19
+        startindex = 100 + (listpage - 1) * 20
+        endindex = startindex + 20
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_country, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
                               Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
         Summary.player_team_short_name != '').order_by(Summary.rank).all()[startindex:endindex]
@@ -121,8 +121,8 @@ def get_lpl_ladder(listpage=None):
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (listpage - 1) * 20 + 1
-        endindex = startindex + 19
+        startindex = 100 + (listpage - 1) * 20
+        endindex = startindex + 20
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_country, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
                               Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
         Summary.player_team_league == 'LPL').order_by(Summary.rank).all()[startindex:endindex]
@@ -135,8 +135,8 @@ def get_cn_ladder(listpage=None):
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (listpage - 1) * 20 + 1
-        endindex = startindex + 19
+        startindex = 100 + (listpage - 1) * 20
+        endindex = startindex + 20
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp, Summary.mmr,
                               Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
         or_(Summary.player_country == 'CN', Summary.player_country == 'TW')).order_by(Summary.rank).all()[startindex:endindex]
@@ -149,8 +149,8 @@ def get_nonpro_ladder(listpage=None):
         startindex = 0
         endindex = 100
     else:
-        startindex = 100 + (listpage - 1) * 20 + 1
-        endindex = startindex + 19
+        startindex = 100 + (listpage - 1) * 20
+        endindex = startindex + 20
     result = db.session.query(Summary.player_name, Summary.rank, Summary.player_country, Summary.player_team_short_name, Summary.player_place, Summary.link, Summary.game_id, Summary.tier, Summary.lp,
                               Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
         Summary.player_place == '路人').order_by(Summary.rank).all()[startindex:endindex]
@@ -206,7 +206,7 @@ def get_query_data(**kw):
         column_country_exp = "1==1"
         column_team_exp = "1==1"
         column_place_exp = "1==1"
-    if kw.get('region') is None or 'list' in kw.get('region'):
+    if 'list' in kw.get('region'):
         listpage = int(kw.get('listpage')[0])
         liststartindex = listpage * 18
         listendindex = liststartindex + 18

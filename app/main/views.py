@@ -20,28 +20,43 @@ def ladder():
         ladder_type = request.args.get('type')
     else:
         ladder_type = None
-    if request.form.get('page') is not None:
-        page = int(request.form.get('page'))
-    else:
-        page = None
-    if ladder_type is None:
-        ladder_data = queries.get_full_ladder(page)['data']
-        return render_template('ladder.html', data=ladder_data, ladder_type=ladder_type)
-    if ladder_type == 'full':
-        ladder_data = queries.get_full_ladder(page)['data']
-        return render_template('tablerow.html', data=ladder_data)
-    if ladder_type == 'pro':
-        ladder_data = queries.get_pro_ladder(page)['data']
-        return render_template('tablerow.html', data=ladder_data)
-    if ladder_type == 'lpl':
-        ladder_data = queries.get_lpl_ladder(page)['data']
-        return render_template('tablerow.html', data=ladder_data)
-    if ladder_type == 'cn':
-        ladder_data = queries.get_cn_ladder(page)['data']
-        return render_template('tablerow.html', data=ladder_data)
-    if ladder_type == 'nonpro':
-        ladder_data = queries.get_nonpro_ladder(page)['data']
-        return render_template('tablerow.html', data=ladder_data, ladder_type=ladder_type)
+    if request.method == 'GET':
+        listpage = None
+        if ladder_type is None:
+            ladder_data = queries.get_full_ladder(listpage)['data']
+            return render_template('ladder.html', data=ladder_data, ladder_type=ladder_type)
+        if ladder_type == 'full':
+            ladder_data = queries.get_full_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data, ladder_type=ladder_type)
+        if ladder_type is None or ladder_type == 'pro':
+            ladder_data = queries.get_pro_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data, ladder_type=ladder_type)
+        if ladder_type is None or ladder_type == 'lpl':
+            ladder_data = queries.get_lpl_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data, ladder_type=ladder_type)
+        if ladder_type is None or ladder_type == 'cn':
+            ladder_data = queries.get_cn_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data, ladder_type=ladder_type)
+        if ladder_type is None or ladder_type == 'nonpro':
+            ladder_data = queries.get_nonpro_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data, ladder_type=ladder_type)
+    if request.method == 'POST':
+        listpage = int(request.form.get('listpage'))
+        if ladder_type == 'full':
+            ladder_data = queries.get_full_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data)
+        if ladder_type == 'pro':
+            ladder_data = queries.get_pro_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data)
+        if ladder_type == 'lpl':
+            ladder_data = queries.get_lpl_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data)
+        if ladder_type == 'cn':
+            ladder_data = queries.get_cn_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data)
+        if ladder_type == 'nonpro':
+            ladder_data = queries.get_nonpro_ladder(listpage)['data']
+            return render_template('tablerow.html', data=ladder_data, ladder_type=ladder_type)
 
 
 @main.route('/query', methods=['GET', 'POST'])
@@ -64,5 +79,4 @@ def query():
 
 @main.route('/help', methods=['GET'])
 def sponsor():
-    flash('test')
     return render_template('help.html')

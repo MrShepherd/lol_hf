@@ -1,4 +1,9 @@
 $(function () {
+    var listpage = 1;
+    var scroll_flag = 1;
+    var imgpage = 0;
+    var previous_able = 0;
+    var next_able = 1;
     //handel lost img error
     var t = document.getElementsByClassName("defaultimg");
     for (var i = 0; i < t.length; i++) {
@@ -9,6 +14,8 @@ $(function () {
     }
     //hadle ladder page button click event
     $("a.btn-ladder").click(function () {
+        listpage = 1;
+        scroll_flag = 1;
         $(this).removeClass("btn-default");
         $(this).addClass("btn-primary");
         $(this).siblings().removeClass("btn-primary");
@@ -36,15 +43,14 @@ $(function () {
         return false;
     });
     //handel click event for left filter of query page
-    var imgpage = 0;
-    var previous_able = 0;
-    var next_able = 1;
     $(".left_filter a").click(function () {
         $(this).parent().siblings().children().removeClass("active");
         $(this).addClass("active");
         imgpage = 0;
         previous_able = 0;
         next_able = 1;
+        listpage = 1;
+        scroll_flag = 1;
         $(".nav-pager .forward").removeClass("disabled");
         $(".nav-pager .backward").addClass("disabled");
         var url = '/query';
@@ -76,8 +82,6 @@ $(function () {
         });
     });
     //handle scroll event for player table list of query page
-    var listpage = 1;
-    var scroll_flag = 1;
     $(window).scroll(function () {
         var url = $('.btn-primary.btn-ladder').attr('href');
         var args = {'listpage': listpage};
