@@ -162,6 +162,9 @@ def get_query_data(**kw):
     if kw.get('page') is None or len(kw.get('page')) == 0:
         startindex = 0
         endindex = 100
+    elif '999' in kw.get('page'):
+        startindex = 0
+        endindex = 99999
     else:
         page = int(kw.get('page')[0])
         startindex = 100 + (page - 1) * 20 + 1

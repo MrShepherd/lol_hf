@@ -95,7 +95,7 @@ def get_nonpro_ladder_ranking():
 
 @api.route('/api/query/')
 def get_query_data():
-    page = 1
-    kw = {'place': ['ADC'], 'team': ['全选'], 'league': ['路人'], 'country': ['中国']}
-    data = queries.get_query_data(page, **kw)
+    # kw = {'place': ['ADC'], 'team': ['全选'], 'league': ['路人'], 'country': ['中国']}
+    kw = {}
+    data = queries.get_query_data(**kw)
     return jsonify(data)

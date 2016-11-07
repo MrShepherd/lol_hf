@@ -57,7 +57,7 @@ $(function () {
                     page++;
                 } else {
                     // alert('no more data');
-                    flag=0;
+                    flag = 0;
                     return false;
                 }
             });
@@ -77,6 +77,7 @@ $(function () {
         });
         args1['region'] = 'list';
         args2['region'] = 'img';
+        args2['page'] = '999';
         $.post(url, args1, function (data) {
             if (data) {
                 $(".ladder-row").empty().append(data);

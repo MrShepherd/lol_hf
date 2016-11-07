@@ -48,8 +48,10 @@ def ladder():
 def query():
     if request.method == 'GET':
         args = {}
-        query_data = queries.get_query_data(**args)['data']
-        return render_template('query.html', query_data=query_data)
+        list_query_data = queries.get_query_data(**args)['data']
+        args = {'page': '999', 'league': '全部', 'team': '全部', 'country': '全部', 'place': '全部'}
+        img_query_data = queries.get_query_data(**args)['data']
+        return render_template('query.html', list_query_data=list_query_data, img_query_data=img_query_data)
     if request.method == 'POST':
         args = request.form
         if 'list' in args.get('region'):

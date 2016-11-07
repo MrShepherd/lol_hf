@@ -54,7 +54,7 @@
             <div class="panel-body">
                 <ul class="place">
                     <li><a href="#" class="active">全部</a></li>
-                    <li><a href="#">上路</a></li>
+                    <li><a href="#">上单 </a></li>
                     <li><a href="#">打野</a></li>
                     <li><a href="#">中单</a></li>
                     <li><a href="#">ADC</a></li>
@@ -65,8 +65,8 @@
         </div>
     </div>
     <div class="player_list">
-        {% for item in query_data %}
-            {% if item.player_name!='路人' %}
+        {% for item in img_query_data %}
+            {% if item.player_name !='路人' %}
                 <div class="col-sm-6 col-md-2">
                     <div class="thumbnail">
                         <a href="#" class="thumbnail">
@@ -99,7 +99,7 @@
             </tr>
             </thead>
             <tbody class="ladder-row">
-            {% for td in query_data %}
+            {% for td in list_query_data %}
                 <tr>
                     <td>{{ td.rank }}<img src="{{ url_for('static',filename='img/nation/'~td.player_country~'.png') }}" alt="" class="img-rounded" width="30" height="20"></td>
                     <td><a href="#"><img src="{{ url_for('static',filename='img/player/'~td.player_name~'.png') }}" alt="" class="img-circle" width="25" height="25">{{ td.player_name }}</a></td>
