@@ -15,7 +15,6 @@
             <li>
                 <p>希望网友们着重关注LPL战队队员在韩服的表现，监督鼓励和鞭策他们努力训练、认真排位。站长是S1开始的一名老玩家，相信还有很多网友和我一样希望LPL能夺得一次S赛冠军，S6输了，S7再来！</p>
             </li>
-            </li>
             <li>
                 <p>站长承诺：网站由站长本人管理期间，本站永久不嵌入广告，且网站不用于盈利，经济所得全部用于网站建设</p>
             </li>
@@ -53,47 +52,85 @@
                 </li>
                 <li>
                     <p>
-                        <button type="button" class="btn btn-primary btn-sm">点我</button>
-                        赞助￥2.00/1小时网费，支持站长修复BUG
+                        <button type="button" class="btn btn-primary btn-sm btn-help">点我</button>
+                        赞助￥<span>2.00</span>/1小时网费，支持站长修复BUG
                     </p>
                 </li>
                 <li>
                     <p>
-                        <button type="button" class="btn btn-primary btn-sm">点我</button>
-                        赞助￥3.00/1杯咖啡，支持站长撰写数据统计分析文章
+                        <button type="button" class="btn btn-primary btn-sm btn-help">点我</button>
+                        赞助￥<span>4.00</span>/1杯速溶咖啡，支持站长撰写数据统计分析文章
                     </p>
                 </li>
                 <li>
                     <p>
-                        <button type="button" class="btn btn-primary btn-sm">点我</button>
-                        赞助￥8.00/1盒烟，支持站长完成录像、OB、直播链接的采集展示以及实现其他新功能
+                        <button type="button" class="btn btn-primary btn-sm btn-help">点我</button>
+                        赞助￥<span>8.00</span>/1盒烟，支持站长完成录像、OB、直播链接的采集展示以及实现其他新功能
                     </p>
                 </li>
                 <li>
                     <p>
-                        <button type="button" class="btn btn-primary btn-sm">点我</button>
-                        赞助￥15.00/1部分域名、服务器、网络、CDN等升级和维护 费用
+                        <button type="button" class="btn btn-primary btn-sm btn-help">点我</button>
+                        赞助￥<span>15.00</span>/1部分域名、服务器、网络、CDN等升级和维护费用
                     </p>
                 </li>
                 <li>
                     <p>
-                        <button type="button" class="btn btn-primary btn-sm">点我</button>
-                        购买￥20.00/1个月网站LOGO，需为非攻击性素材，站长可协助制作，购买前务必先联系站长
+                        <button type="button" class="btn btn-primary btn-sm btn-help">点我</button>
+                        购买￥<span>20.00</span>/1个月网站LOGO，需为非攻击性素材，站长可协助制作，购买前务必先联系站长
                     </p>
                 </li>
                 <li>
                     <p>
-                        <button type="button" class="btn btn-primary btn-sm">点我</button>
-                        购买￥30.00/1个月网站站名，需为非攻击性名称，购买前务必先联系站长
+                        <button type="button" class="btn btn-primary btn-sm btn-help">点我</button>
+                        购买￥<span>30.00</span>/1个月网站站名，需为非攻击性名称，购买前务必先联系站长
                     </p>
                 </li>
                 <li>
-                    <p>
-                        <button type="button" class="btn btn-primary btn-sm">点我</button>
-                        作为土豪，随意又任性的打赏任意金额
-                    </p>
+                    <form class="form-inline" role="form">
+                        <p>
+                            <button type="button" class="btn btn-primary btn-sm btn-help">点我</button>
+                            作为土豪，随意又任性的打赏任意金额:
+                            <input type="text" class="form-control" placeholder="￥0.00">
+                        </p>
+                    </form>
                 </li>
             </ul>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">感谢您的慷慨解囊</h4>
+                </div>
+                <div class="modal-body">
+                    <p>请留下您的信息，录入赞助墙，供站长和网友膜拜：</p>
+                    <form class="bs-example bs-example-form" role="form">
+                        <div class="input-group">
+                            <span class="input-group-addon">根据地-网名</span>
+                            <input type="text" class="form-control" placeholder="如：背锅吧-ClearRun">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon">服务器  名称</span>
+                            <input type="text" class="form-control" placeholder="如：电信1-艾欧尼亚">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon">召唤师&nbsp;&nbsp;&nbsp;I D</span>
+                            <input type="text" class="form-control" placeholder="如：UltFlash">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-amount"></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">算了，遗憾的放弃</button>
+                    <button type="button" class="btn btn-default">使用微信赞助</button>
+                    <button type="button" class="btn btn-default">使用支付宝赞助</button>
+                </div>
+            </div>
         </div>
     </div>
 

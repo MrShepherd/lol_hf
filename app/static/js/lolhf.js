@@ -83,27 +83,30 @@ $(function () {
     });
     //handle scroll event for player table list of query page
     $(window).scroll(function () {
-        var url = $('.btn-primary.btn-ladder').attr('href');
-        var args = {'listpage': listpage};
-        if (url == '' || url == undefined || url == null) {
-            url = '/query';
-            $(".left_filter .active").each(function () {
-                args[$(this).parent().parent().attr("class")] = $(this).text();
-            });
-            args['listpage'] = listpage;
-            args['region'] = 'list';
-        }
-        if ($(document).height() - $(this).scrollTop() - $(this).height() < 1 && scroll_flag == 1) {
-            $.post(url, args, function (data) {
-                if (data) {
-                    $(".ladder-row").append(data);
-                    listpage++;
-                } else {
-                    // alert('no more data');
-                    scroll_flag = 0;
-                    return false;
-                }
-            });
+        var hostname = window.location.hostname;
+        if (hostname.indexOf('ladder') > 0 || hostname.indexOf('query') > 0) {
+            var url = $('.btn-primary.btn-ladder').attr('href');
+            var args = {'listpage': listpage};
+            if (url == '' || url == undefined || url == null) {
+                url = '/query';
+                $(".left_filter .active").each(function () {
+                    args[$(this).parent().parent().attr("class")] = $(this).text();
+                });
+                args['listpage'] = listpage;
+                args['region'] = 'list';
+            }
+            if ($(document).height() - $(this).scrollTop() - $(this).height() < 1 && scroll_flag == 1) {
+                $.post(url, args, function (data) {
+                    if (data) {
+                        $(".ladder-row").append(data);
+                        listpage++;
+                    } else {
+                        // alert('no more data');
+                        scroll_flag = 0;
+                        return false;
+                    }
+                });
+            }
         }
     });
     //handle pager click event for player img list of query page
@@ -145,7 +148,19 @@ $(function () {
                 }
             });
         }
-    })
+    });
+    //handel help button click event from help page
+    $(".btn-help").click(function () {
+        var amount = $(this).siblings("span").text();
+        if (!amount) {
+            amount = $(this).siblings("input").val();
+            amount = parseFloat(amount).toFixed(2);
+        }
+        if (amount) {
+            $(".modal-footer .btn-amount").text("￥" + amount);
+            $('#myModal').modal();
+        }
+    });
 });
 
 
