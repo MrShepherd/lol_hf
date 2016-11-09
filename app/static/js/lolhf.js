@@ -83,8 +83,8 @@ $(function () {
     });
     //handle scroll event for player table list of query page
     $(window).scroll(function () {
-        var hostname = window.location.hostname;
-        if (hostname.indexOf('ladder') > 0 || hostname.indexOf('query') > 0) {
+        var pageurl = window.location.pathname;
+        if (pageurl.indexOf('ladder') > 0 || pageurl.indexOf('query') > 0) {
             var url = $('.btn-primary.btn-ladder').attr('href');
             var args = {'listpage': listpage};
             if (url == '' || url == undefined || url == null) {
@@ -150,19 +150,40 @@ $(function () {
         }
     });
     //handel help button click event from help page
+    var payamount = 0;
     $(".btn-help").click(function () {
         var amount = $(this).siblings("span").text();
         if (!amount) {
             amount = $(this).siblings("input").val();
             amount = parseFloat(amount).toFixed(2);
         }
+        payamount = Math.round(amount);
         if (amount) {
             $(".modal-footer .btn-amount").text("￥" + amount);
+            $(".modal-footer .btn-pay-amount").text("￥" + amount);
             $('#myModal').modal();
         }
     });
+    $(".btn-weixin").click(function () {
+        $(".moday-pay-footer .p-pay").text("微信支付");
+        $(".moday-pay-footer .p-pay-tip").text("使用微信扫描二维码完成支付");
+        var imgpath = "/static/img/help/weixinpay-" + payamount + ".png";
+        $(".modal-pay-body img").attr('src', imgpath);
+        $(".modal-pay-body img").error(function () {
+            imgpath = "/static/img/help/weixinpay.png";
+            $(this).attr('src', imgpath);
+        });
+        $('#payModal').modal();
+    });
+    $(".btn-zhifubao").click(function () {
+        $(".moday-pay-footer .p-pay").text("支付宝支付");
+        $(".moday-pay-footer .p-pay-tip").text("使用支付宝扫描二维码完成支付");
+        var imgpath = "/static/img/help/alipay-" + payamount + ".jpg";
+        $(".modal-pay-body img").attr('src', imgpath);
+        $(".modal-pay-body img").error(function () {
+            imgpath = "/static/img/help/alipay.jpg";
+            $(this).attr('src', imgpath);
+        });
+        $('#payModal').modal();
+    });
 });
-
-
-
-

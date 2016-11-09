@@ -91,7 +91,7 @@
                         <p>
                             <button type="button" class="btn btn-primary btn-sm btn-help">点我</button>
                             作为土豪，随意又任性的打赏任意金额:
-                            <input type="text" class="form-control" placeholder="￥0.00">
+                            <input type="text" class="form-control" placeholder="￥50.00">
                         </p>
                     </form>
                 </li>
@@ -127,8 +127,26 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-amount"></button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">算了，遗憾的放弃</button>
-                    <button type="button" class="btn btn-default">使用微信赞助</button>
-                    <button type="button" class="btn btn-default">使用支付宝赞助</button>
+                    <button type="button" class="btn btn-default btn-weixin">使用微信赞助</button>
+                    <button type="button" class="btn btn-default btn-zhifubao">使用支付宝赞助</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="payModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">感谢您的慷慨解囊</h4>
+                </div>
+                <div class="modal-body modal-pay-body">
+                    <img src="{{ url_for('static',filename='img/tmp/tmp_img.jpg') }}" alt="..." width="280" height="350">
+                </div>
+                <div class="modal-footer moday-pay-footer">
+                    <button type="button" class="btn btn-primary btn-pay-amount"></button>
+                    <p class="p-pay">微信支付</p>
+                    <p class="p-pay-tip">使用微信扫描二维码完成支付</p>
                 </div>
             </div>
         </div>

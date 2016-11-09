@@ -188,7 +188,14 @@ hr.divider {
     width: 750px;
 }
 
-.btn-amount{
+.btn-amount {
     margin-right: 100px;
 }
 
+.modal-pay-body {
+    text-align: center;
+}
+
+.btn-pay-amount {
+    float: left;
+}
