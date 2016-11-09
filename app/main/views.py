@@ -1,7 +1,9 @@
-from flask import render_template, flash, request
+from flask import render_template, request
 
 from . import main
 from .. import queries
+from ..models import Sponsor
+from .. import db
 
 
 @main.route('/', methods=['GET'])
@@ -77,6 +79,15 @@ def query():
             return render_template('playerlistimg.html', data=query_data)
 
 
-@main.route('/help', methods=['GET'])
+@main.route('/help', methods=['GET', 'POST'])
 def sponsor():
-    return render_template('help.html')
+    if request.method == 'GET':
+        return render_template('help.html')
+    if request.method == 'POST':
+        data = request.form
+        newsponsor = Sponsor(sponsorfrom=data.get('from'), sponsorname=data.get('name'), sponsorserver=data.get('server'), sponsorgameid=data.get('gameid'),
+                             sponsoramount=data.get('amount'), sponsordate=data.get('date'), sponsormedia=data.get('media'))
+        db.session.add(newsponsor)
+        db.session.commit()
+        db.session.close()
+        return 'ok'

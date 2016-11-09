@@ -174,6 +174,18 @@ $(function () {
             $(this).attr('src', imgpath);
         });
         $('#payModal').modal();
+        var url = '/help';
+        var args = {};
+        args['from'] = $("#from").val();
+        args['name'] = $("#name").val();
+        args['server'] = $("#server").val();
+        args['gameid'] = $("#gameid").val();
+        var mydate = new Date();
+        args['date'] = mydate.toLocaleDateString();
+        args['amount'] = $(".btn-amount").text();
+        args['media'] = $(this).text();
+        $.post(url, args,function () {
+        });
     });
     $(".btn-zhifubao").click(function () {
         $(".moday-pay-footer .p-pay").text("支付宝支付");
@@ -185,5 +197,17 @@ $(function () {
             $(this).attr('src', imgpath);
         });
         $('#payModal').modal();
+        var url = '/help';
+        var args = {};
+        args['from'] = $("#from").val();
+        args['name'] = $("#name").val();
+        args['server'] = $("#server").val();
+        args['gameid'] = $("#gameid").val();
+        var mydate = new Date();
+        args['date'] = mydate.toLocaleDateString();
+        args['amount'] = $(".btn-amount").text();
+        args['media'] = $(this).text();
+        $.post(url, args,function () {
+        });
     });
 });

@@ -94,3 +94,18 @@ class Summary(db.Model):
 
     def __repr__(self):
         return '<Summary %r>' % self.game_id
+
+
+class Sponsor(db.Model):
+    __tablename__ = 'sponsor'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    sponsorfrom = db.Column(db.String(100))
+    sponsorname = db.Column(db.String(100))
+    sponsorserver = db.Column(db.String(100))
+    sponsorgameid = db.Column(db.String(100))
+    sponsordate = db.Column(db.String(100))
+    sponsoramount = db.Column(db.String(100))
+    sponsormedia = db.Column(db.String(100))
+
+    def __repr__(self):
+        return '<Sponsor %r>' % self.sponsorname

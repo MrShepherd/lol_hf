@@ -199,3 +199,11 @@ hr.divider {
 .btn-pay-amount {
     float: left;
 }
+
+.input-group-addon {
+    width: 100px;
+}
+
+.input-group .form-control{
+    width: 450px;
+}
