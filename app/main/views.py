@@ -1,9 +1,8 @@
 from flask import render_template, request
 
 from . import main
-from .. import queries
+from .. import queries, db
 from ..models import Sponsor
-from .. import db
 
 
 @main.route('/', methods=['GET'])
