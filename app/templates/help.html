@@ -11,189 +11,22 @@
     <div id="sponsor-wall">
         <h3 class="page-header">赞助墙</h3>
         <div class="sponsorListHolder">
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/canon.png" width="140" height="140"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
+            {% for data in sponsordata %}
+                <div class="sponsor" title="Click to flip">
+                    <div class="sponsorFlip">
+                        <img src="{{ url_for('static',filename='img/sponsors/'~data.sponsorfrom~'.png') }}" width="140" height="140"/>
+                        <p>{{ data.sponsorname }}</p>
                     </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/cisco.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
+                    <div class="sponsorData">
+                        <div class="sponsorDescription">
+                            在<span>{{ data.sponsordate }}</span>{{ data.sponsormedia }}&nbsp;{{ data.sponsoramount }}
+                        </div>
+                        <div class="sponsorURL">
+                            LOL坐标:{{ data.sponsorserver }}-&nbsp;{{ data.sponsorgameid }}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/dell.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/digg.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/ea.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/ebay.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/facebook.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/google.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/hp.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/microsoft.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/mysql.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/sony.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/vimeo.png"/>
-                </div>
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sponsor" title="Click to flip">
-                <div class="sponsorFlip">
-                    <img src="../static/img/sponsors/yahoo.png"/>
-                </div>
-
-                <div class="sponsorData">
-                    <div class="sponsorDescription">
-                        One of the biggest computer manufacturs
-                    </div>
-                    <div class="sponsorURL">
-                        <a href="http://www.sd131.com">www.sd131.com</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <div class="aboutsite">

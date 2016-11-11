@@ -1,6 +1,6 @@
 from sqlalchemy.sql.elements import or_
 
-from app.models import Summary
+from app.models import Summary, SponsorManual
 from . import db
 
 
@@ -221,5 +221,12 @@ def get_query_data(**kw):
                                   Summary.lp, Summary.mmr, Summary.total_win, Summary.total_lose, Summary.total_win_ratio, Summary.twentyavgck, Summary.twentyavgkda, Summary.twentywinratio).filter(
             eval(column_country_exp)).filter(eval(column_league_exp)).filter(eval(column_team_exp)).filter(eval(column_place_exp)).filter(Summary.player_name != '路人').order_by(Summary.rank).all()[
                  imgstartindex:imgendindex]
+    data = to_dict(result)
+    return data
+
+
+def get_sponsor_data():
+    result = db.session.query(SponsorManual.sponsorname, SponsorManual.sponsoramount, SponsorManual.sponsordate, SponsorManual.sponsorfrom, SponsorManual.sponsorgameid, SponsorManual.sponsormedia,
+                              SponsorManual.sponsorserver).order_by(SponsorManual.sponsoramount).all()
     data = to_dict(result)
     return data

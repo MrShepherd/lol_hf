@@ -81,11 +81,12 @@ def query():
 @main.route('/help', methods=['GET', 'POST'])
 def sponsor():
     if request.method == 'GET':
-        return render_template('help.html')
+        sponsordata = queries.get_sponsor_data()['data']
+        return render_template('help.html', sponsordata=sponsordata)
     if request.method == 'POST':
         data = request.form
-        newsponsor = Sponsor(sponsorfrom=data.get('from'), sponsorname=data.get('name'), sponsorserver=data.get('server'), sponsorgameid=data.get('gameid'),
-                             sponsoramount=data.get('amount'), sponsordate=data.get('date'), sponsormedia=data.get('media'))
+        newsponsor = Sponsor(sponsorfrom=data.get('from'), sponsorname=data.get('name'), sponsorserver=data.get('server'), sponsorgameid=data.get('gameid'), sponsoramount=data.get('amount'),
+                             sponsordate=data.get('date'), sponsormedia=data.get('media'))
         db.session.add(newsponsor)
         db.session.commit()
         db.session.close()

@@ -229,7 +229,7 @@ hr.divider {
     width: 100%;
     height: 100%;
     border: 1px solid #ddd;
-    background: url("../img/background.jpg") no-repeat center center #f9f9f9;
+    background: url("../img/bg/background.jpg") no-repeat center center #f9f9f9;
 }
 
 .sponsorFlip:hover {
@@ -240,10 +240,20 @@ hr.divider {
 }
 
 .sponsorFlip img {
-    position: absolute;
+    position: relative;
+    opacity: 0.5;
     top: 50%;
     left: 50%;
     margin: -70px 0 0 -70px;
+}
+
+.sponsorFlip p {
+    position: absolute;
+    font-weight: bold;
+    font-size: 20px;
+    color: #4169E1;
+    font-family: 'Microsoft YaHei',Georgia, Serif, serif;
+    margin-left: 25%;
 }
 
 .sponsorData {

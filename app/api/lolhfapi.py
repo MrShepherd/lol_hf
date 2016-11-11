@@ -98,3 +98,9 @@ def get_query_data():
     kw = {'place': ['全部'], 'team': ['全部'], 'league': ['全部'], 'country': ['全部'], 'region': 'list', 'listpage': '2'}
     data = queries.get_query_data(**kw)
     return jsonify(data)
+
+
+@api.route('/api/sponsor/')
+def get_sponsor_data():
+    data = queries.get_sponsor_data()
+    return jsonify(data)
