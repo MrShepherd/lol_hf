@@ -264,7 +264,8 @@ hr.divider {
 
 #sponsor-wall {
     /*position: relative;*/
-    margin: 40px 140px;
+    padding-top: 50px;
+    margin: 0 140px;
     width: 480px;
     float: right;
 }

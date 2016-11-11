@@ -43,6 +43,18 @@ class IDMapping(db.Model):
         return '<IDMapping %r>' % self.game_id
 
 
+class IDMappingManual(db.Model):
+    __tablename__ = 'idmappingmanual'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # playername = db.Column(db.String(64), db.ForeignKey('player.player_name'))
+    player_name = db.Column(db.String(100))
+    player_team = db.Column(db.String(50))
+    game_id = db.Column(db.String(100))
+
+    def __repr__(self):
+        return '<IDMappingManual %r>' % self.game_id
+
+
 class GameIDInfo(db.Model):
     __tablename__ = 'gameidinfo'
     game_id = db.Column(db.String(100), primary_key=True)
@@ -109,3 +121,18 @@ class Sponsor(db.Model):
 
     def __repr__(self):
         return '<Sponsor %r>' % self.sponsorname
+
+
+class SponsorManual(db.Model):
+    __tablename__ = 'sponsormanual'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    sponsorfrom = db.Column(db.String(100))
+    sponsorname = db.Column(db.String(100))
+    sponsorserver = db.Column(db.String(100))
+    sponsorgameid = db.Column(db.String(100))
+    sponsordate = db.Column(db.String(100))
+    sponsoramount = db.Column(db.String(100))
+    sponsormedia = db.Column(db.String(100))
+
+    def __repr__(self):
+        return '<SponsorManual %r>' % self.sponsorname
