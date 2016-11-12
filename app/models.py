@@ -50,6 +50,7 @@ class IDMappingManual(db.Model):
     player_name = db.Column(db.String(100))
     player_team = db.Column(db.String(50))
     game_id = db.Column(db.String(100))
+    enable = db.Column(db.Integer, default=0)
 
     def __repr__(self):
         return '<IDMappingManual %r>' % self.game_id
