@@ -90,4 +90,4 @@ def sponsor():
         db.session.add(newsponsor)
         db.session.commit()
         db.session.close()
-        return 'ok'
+        return 'ok,done'
