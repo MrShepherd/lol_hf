@@ -1,9 +1,11 @@
 -- create user and database for dev-env
-create user 'lolhfdev'@'localhost' identified by 'lolhfdev';
-create database lolhfdev;
-grant all on lolhfdev.* to 'lolhfdev'@'localhost';
+CREATE USER 'lolhfdev'@'localhost';
+  IDENTIFIED BY 'lolhfdev';
+CREATE DATABASE lolhfdev;
+GRANT ALL ON lolhfdev.* TO 'lolhfdev'@'localhost';
 
 -- create user and database for test-env
-create user 'lolhftest'@'localhost' identified by 'lolhftest';
-create database lolhftest;
-grant all on lolhftest.* to 'lolhftest'@'localhost';	
+CREATE USER 'lolhftest'@'localhost';
+  IDENTIFIED BY 'lolhftest';
+CREATE DATABASE lolhftest;
+GRANT ALL ON lolhftest.* TO 'lolhftest'@'localhost';
