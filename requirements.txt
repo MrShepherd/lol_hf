@@ -9,7 +9,7 @@ chardet==2.3.0
 checkbox-support==0.22
 click==6.6
 command-not-found==0.3
-cryptography==1.5.2
+cryptography==3.2
 cssselect==1.0.0
 defer==1.0.6
 dominate==2.2.1
