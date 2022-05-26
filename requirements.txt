@@ -70,7 +70,7 @@ six==1.10.0
 SQLAlchemy==1.0.15
 system-service==0.3
 tornado==4.4.2
-Twisted==16.4.1
+Twisted==22.4.0
 u-msgpack-python==2.3.0
 ubuntu-drivers-common==0.0.0
 ufw==0.35
